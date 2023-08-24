@@ -8,13 +8,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title> 마이페이지 </title>
-    <jsp:include page="../common.jsp" />
-
-    <!-- breadcrumb 가져오기 -->
-    <link rel="stylesheet" href="${path}/css/breadcrumb.css">
-    <script src="${path}/js/breadcrumb.js"></script>
-    <script src="${path}/js/jquery-1.10.0.js"></script>
+    <title> 개인정보 변경 </title>
+    <c:set var="path" value="<%=request.getContextPath()%>"/>
+    <%@ include file="../common.jsp"%>
 
     <c:if test="${msg eq 'fail'}">
         <script>
@@ -25,21 +21,27 @@
 <body>
 <div class="container-fluid m-0 p-0">
     <%@ include file="../header.jsp"%>
-    <div class="section" style="background-color: #eee; padding-top: 20px;">
-        <div class="contents">
-            <div class="container-fluid p-0">
-                <div class="col-auto col-md-10  ">
-                    <nav aria-label="breadcrumb " class="first  d-md-flex" >
-                        <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg mb-5  ">
-                            <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="${path}/"><span> HOME </span></a><img class="ml-md-3" src="https://img.icons8.com/offices/30/000000/double-right.png" width="20" height="20"> </li>
-                            <li class="breadcrumb-item font-weight-bold mr-0 pr-0"><a class="black-text uppercase" href="${path}/Mypage.do"><span> MY PAGE </span></a><img class="ml-md-3" src="https://img.icons8.com/offices/30/000000/double-right.png" width="20" height="20">  </li>
-                            <li class="breadcrumb-item font-weight-bold mr-0 pr-0"><a class="black-text active-1" href="${path}/MyInfoUpdate.do"><span> 개인정보 변경 </span></a> </li>
-                        </ol>
-                    </nav>
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4> MyPage </h4>
+                        <div class="breadcrumb__links">
+                            <a href="${path}/">Home</a>
+                            <a href="${path}/Mypage.do">MyPage</a>
+                            <span> 개인정보 변경 </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <section style="padding: 80px;">
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <section style="padding: 80px;">
             <div class="mask d-flex align-items-center h-100 gradient-custom-3">
                 <div class="container h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -103,29 +105,28 @@
                 </div>
             </div>
         </section>
-        <script>
-            $(document).ready(function() {
+    <script>
+        $(document).ready(function() {
 
-            });
-            function findAddr(){
-                new daum.Postcode({
-                    oncomplete:function(data){
-                        console.log(data);
-                        var roadAddr = data.roadAddress;
-                        var jibunAddr = data.jibunAddress;
-                        document.getElementById("postcode").value = data.zonecode;
-                        if(roadAddr !== ''){
-                            document.getElementById("address1").value = roadAddr;
-                        } else if(jibunAddr !== ''){
-                            document.getElementById("address1").value = jibunAddr;
-                        }
-                        document.getElementById("address2").focus();
+        });
+        function findAddr(){
+            new daum.Postcode({
+                oncomplete:function(data){
+                    console.log(data);
+                    var roadAddr = data.roadAddress;
+                    var jibunAddr = data.jibunAddress;
+                    document.getElementById("postcode").value = data.zonecode;
+                    if(roadAddr !== ''){
+                        document.getElementById("address1").value = roadAddr;
+                    } else if(jibunAddr !== ''){
+                        document.getElementById("address1").value = jibunAddr;
                     }
-                }).open();
-            }
-        </script>
-        <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    </div>
+                    document.getElementById("address2").focus();
+                }
+            }).open();
+        }
+    </script>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <%@ include file="../footer.jsp" %>
 </div>
 </body>

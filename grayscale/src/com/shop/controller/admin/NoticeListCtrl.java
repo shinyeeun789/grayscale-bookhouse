@@ -18,8 +18,10 @@ public class NoticeListCtrl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("msg", "공지사항 목록을 출력합니다.");
 
+        int curPage = Integer.parseInt(request.getParameter("page"));
+
         NoticeDAO dao = new NoticeDAO();
-        List<Notice> notiList = dao.getNoticeList();
+        List<Notice> notiList = dao.getNoticeList((curPage - 1) * 10);
         request.setAttribute("notiList", notiList);
 
         RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/admin/noticeList.jsp");

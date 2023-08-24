@@ -7,13 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
-
+    <c:set var="path" value="<%=request.getContextPath()%>"/>
     <%@ include file="../common.jsp"%>
-
-    <!-- breadcrumb 가져오기 -->
-    <link rel="stylesheet" href="${path}/css/breadcrumb.css">
-    <script src="${path}/js/breadcrumb.js"></script>
-    <script src="${path}/js/jquery-1.10.0.js"></script>
 
     <style>
         input[type="password"] {
@@ -27,17 +22,26 @@
 <body>
 <div class="container-fluid m-0 p-0">
     <%@ include file="../header.jsp"%>
+
     <div class="contents" style="min-height:100vh">
-        <div class=" container-fluid p-0" style="margin-top: 20px">
-            <div class="col-auto col-md-10  ">
-                <nav aria-label="breadcrumb " class="first  d-md-flex" >
-                    <ol class="breadcrumb indigo lighten-6 first-1 shadow-lg mb-5  ">
-                        <li class="breadcrumb-item font-weight-bold"><a class="black-text text-uppercase" href="${path}/"><span> HOME </span></a><img class="ml-md-3" src="https://img.icons8.com/offices/30/000000/double-right.png" width="20" height="20"> </li>
-                        <li class="breadcrumb-item font-weight-bold mr-0 pr-0"><a class="black-text active-1" href="${path}/Mypage.do"><span> MY PAGE </span></a> </li>
-                    </ol>
-                </nav>
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4> MyPage </h4>
+                            <div class="breadcrumb__links">
+                                <a href="${path}/">Home</a>
+                                <span> MyPage </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+        <!-- Breadcrumb Section End -->
+
         <h2 class="title"> 마이페이지 </h2>
         <div class="container-lg">
             <div class="box_wrap w-75" style="margin: 0 auto">

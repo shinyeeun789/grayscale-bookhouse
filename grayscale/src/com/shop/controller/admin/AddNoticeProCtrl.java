@@ -24,7 +24,7 @@ public class AddNoticeProCtrl extends HttpServlet {
         NoticeDAO dao = new NoticeDAO();
         int a = dao.addNotice(noti);
         if(a>0) {
-            response.sendRedirect(request.getContextPath() + "/NoticeList.do");
+            response.sendRedirect(request.getContextPath() + "/NoticeList.do?page=1");
         } else {
             out.println("<script>history.go(-1);</script>");
         }

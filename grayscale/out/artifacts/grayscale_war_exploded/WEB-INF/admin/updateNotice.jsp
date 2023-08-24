@@ -7,57 +7,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 글 수정하기</title>
+    <c:set var="path" value="<%=request.getContextPath()%>" />
     <%@ include file="../../common.jsp"%>
-    <style>
-    #tb1 { width:960px; margin:40px auto; }
-    #tb1 th { background-color: #111; color:#fff; }
-    .item1 { width:10%; }
-    .item2 { width:70%; }
-    .item3 { width:10%; }
-    .item4 { width:10%; }
-    #page-nation1 { width: 960px; margin:20px auto; }
-    </style>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid m-0 p-0">
     <%@ include file="../../header.jsp"%>
-    <div class="contents" style="min-height:100vh">
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
-            <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Update</li>
-                </ol>
-            </div>
-        </nav>
-        <h2 class="title">공지사항 글 수정하기</h2>
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
         <div class="container">
-            <div class="box_wrap">
-                <form action="${path }/UpdateNoticePro.do" method="post">
-                    <table class="table table-secondary" id="tb1">
-                        <tbody>
-                        <tr>
-                            <th>글 제목</th>
-                            <td>
-                                <input type="text" value="${noti.title }" name="title" id="title" class="form-control" required/>
-                                <input type="hidden" name="no" id="no" value="${noti.no }">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>글 내용</th>
-                            <td><textarea name="content" id="content" class="form-control" required>${noti.content }</textarea></td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <div class="group container">
-                        <button type="submit" class="btn btn-primary">글 수정</button>
-                        <a href="${path }/AdminNoticeList.do" class="btn btn-primary">글 목록</a>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4> 공지사항 상세 보기 </h4>
+                        <div class="breadcrumb__links">
+                            <a href="${path}/">Home</a>
+                            <a href="javascript: history.go(-1)">공지사항</a>
+                            <span> 공지사항 상세 보기 </span>
+                        </div>
                     </div>
-                </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <div class="container-fluid px-4 mt-5 mb-5">
+        <div class="row justify-content-md-center">
+            <div class="col-sm-8 mb-3 mb-sm-0">
+                <div class="card w-100 mb-3">
+                    <div class="card-body">
+                        <form action="${path}/UpdateNoticePro.do" method="post">
+                            <div class="form-outline mb-4">
+                                <label for="title" class="form-label"> 제목 </label>
+                                <input type="text" class="form-control" id="title" name="title" value="${noti.title}" required>
+                                <input type="hidden" id="no" name="no" value="${noti.no}">
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label for="content" class="form-label"> 내용 </label>
+                                <textarea class="form-control" id="content" name="content" rows="10">${noti.content}</textarea>
+                            </div>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <input type="submit" class="btn btn-dark btn-block gradient-custom-4" value="글 수정하기">
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
     <%@ include file="../../footer.jsp" %>
 </div>
 </body>

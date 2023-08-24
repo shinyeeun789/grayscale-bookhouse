@@ -25,13 +25,13 @@ public class NoticeListCtrl extends HttpServlet {
         int curPage = Integer.parseInt(request.getParameter("page"));
 
         NoticeDAO dao = new NoticeDAO();
-        List<Notice> notiList = dao.getNoticeList();
+        List<Notice> notiList = dao.getNoticeList((curPage - 1) * 10);
         request.setAttribute("notiList", notiList);
         
         // 페이징 처리
         Page page = new Page();
         try {
-            page.paging(curPage, 10, 10, "notice");
+            page.paging(curPage, 10, 5, "notice");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

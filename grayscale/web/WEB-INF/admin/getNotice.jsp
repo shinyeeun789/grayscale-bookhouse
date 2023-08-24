@@ -19,49 +19,63 @@
     </style>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid m-0 p-0">
     <%@ include file="../../header.jsp"%>
     <div class="contents" style="min-height:100vh">
-        <nav aria-label="breadcrumb container-fluid" style="padding-top:28px; border-bottom:2px solid #666;">
+
+        <!-- Breadcrumb Section Begin -->
+        <section class="breadcrumb-option">
             <div class="container">
-                <ol class="breadcrumb justify-content-end">
-                    <li class="breadcrumb-item"><a href="${path }">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Notice</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Detail</li>
-                </ol>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h4> 공지사항 상세 보기 </h4>
+                            <div class="breadcrumb__links">
+                                <a href="${path}/">Home</a>
+                                <a href="javascript: history.go(-1)">공지사항</a>
+                                <span> 공지사항 상세 보기 </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
-        <h2 class="title">공지사항 상세보기</h2>
-        <div class="container">
-            <div class="box_wrap">
-                <table class="table table-secondary" id="tb1">
-                    <tbody>
-                    <tr>
-                        <th>글 번호</th>
-                        <td>${noti.no }</td>
-                    </tr>
-                    <tr>
-                        <th>글 제목</th>
-                        <td>${noti.title }</td>
-                    </tr>
-                    <tr>
-                        <th>글 내용</th>
-                        <td>${noti.content }</td>
-                    </tr>
-                    <tr>
-                        <th>작성일시</th>
-                        <td>${noti.resdate }</td>
-                    </tr>
-                    <tr>
-                        <th>읽은 횟수</th>
-                        <td>${noti.visited }</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div class="btn-group">
-                    <a href="${path }/AdminNoticeList.do" class="btn btn-primary">글 목록</a>
-                    <a href="${path }/UpdateNotice.do?no=${noti.no }" class="btn btn-primary">글 수정</a>
-                    <a href="${path }/DeleteNotice.do?no=${noti.no }" class="btn btn-primary">글 삭제</a>
+        </section>
+        <!-- Breadcrumb Section End -->
+
+        <div class="container-fluid px-4 mt-5">
+            <div class="row justify-content-md-center">
+                <div class="col-sm-8 mb-3 mb-sm-0">
+                    <div class="card w-100 mb-3">
+                        <div class="card-body">
+                            <div class="row justify-content-md-center">
+                                <div class="col-12 mb-3">
+                                    <h5 class="card-text">[${noti.no}] <b>${noti.title}</b></h5>
+                                </div>
+                                <div class="col-8 mb-3">
+                                    <p class="card-text">작성일 ${noti.resdate}</p>
+                                </div>
+                                <div class="col-4 mb-3">
+                                    <p class="card-text text-end">조회수 ${noti.visited}회</p>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <textarea class="form-control" rows="10" disabled>${noti.content}</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <c:if test="${sid eq 'admin1234' }">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="javascript:history.go(-1)" class="btn btn-dark"> 목록 </a>
+                            <a href="UpdateNotice.do?no=${noti.no}" class="btn btn-primary"> 수정 </a>
+                            <a href="DeleleteNotice.do?bno=${noti.no}" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')"> 삭제 </a>
+                        </div>
+                    </c:if>
+                    <c:if test="${sid ne 'admin1234'}">
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="javascript:history.go(-1)" class="btn btn-dark"> 목록으로 </a>
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>

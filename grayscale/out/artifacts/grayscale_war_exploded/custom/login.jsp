@@ -11,7 +11,13 @@
     <%@ include file="../common.jsp"%>
     <c:if test="${param.msg eq 'fail'}">
         <script>
-            alert("로그인에 실패했습니다.");
+            $(document).ready(function() {
+                $("#login_info").html(
+                    "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='currentColor' class='bi bi-exclamation-circle' viewBox='0 0 16 16'>" +
+                        "<path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/>" +
+                        "<path d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z'/>" +
+                    "</svg> 아이디 또는 비밀번호가 틀렸습니다.");
+            });
         </script>
     </c:if>
 </head>
@@ -33,6 +39,7 @@
                                     <div class="form-outline mb-4">
                                         <input type="password" id="pw" name="pw" class="form-control form-control-lg" placeholder="비밀번호 입력" autocomplete="off" required />
                                     </div>
+                                    <div class="form-outline mb-4" id="login_info" style="color:red; transition: 0.3s"></div>
                                     <button class="btn btn-primary btn-lg btn-block w-100" type="submit">Login</button>
                                 </form>
                             </div>

@@ -8,6 +8,7 @@ public interface DBConnect {
     // 공지사항 테이블 SQL문
     final static String SELECT_NOTICE_COUNT = "select count(*) as cnt from notice";
     final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
+    final static String NOTICE_SELECT_LIMIT = "select * from notice order by no desc limit 10 offset ?";
     final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
     final static String NOTICE_INSERT = "insert into notice values (default,?,?,default,default);";
     final static String NOTICE_UPDATE = "update notice set title=?, content=? where no=?";

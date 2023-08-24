@@ -17,6 +17,7 @@ public class Page {
     private int endRow;
     private boolean prev = true;
     private boolean next = true;
+    private int nextPage = 1;
     private List<Integer> pageList;
 
     public void paging(int pageNum, int pageSize, int pageBlock, String dbName) throws SQLException {
@@ -50,7 +51,13 @@ public class Page {
         }
 
         prev = (startPage < pageBlock) ? false : true;
-        next = (endPage < totalPage) ? true : false;
+        if(endPage < totalPage) {
+            next = true;
+            nextPage = startPage + pageBlock;
+        } else {
+            next= false;
+            nextPage = pageBlock;
+        }
 
         pageList = new ArrayList<>();
 
@@ -63,19 +70,47 @@ public class Page {
         return startRow;
     }
 
+    public void setStartRow(int startRow) {
+        this.startRow = startRow;
+    }
+
     public int getEndRow() {
         return endRow;
     }
 
-    public List<Integer> getPageList() {
-        return pageList;
+    public void setEndRow(int endRow) {
+        this.endRow = endRow;
     }
 
     public boolean isPrev() {
         return prev;
     }
 
+    public void setPrev(boolean prev) {
+        this.prev = prev;
+    }
+
     public boolean isNext() {
         return next;
+    }
+
+    public void setNext(boolean next) {
+        this.next = next;
+    }
+
+    public int getNextPage() {
+        return nextPage;
+    }
+
+    public void setNextPage(int nextPage) {
+        this.nextPage = nextPage;
+    }
+
+    public List<Integer> getPageList() {
+        return pageList;
+    }
+
+    public void setPageList(List<Integer> pageList) {
+        this.pageList = pageList;
     }
 }

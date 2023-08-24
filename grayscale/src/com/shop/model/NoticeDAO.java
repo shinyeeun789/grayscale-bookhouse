@@ -17,12 +17,13 @@ public class NoticeDAO {
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
 
-    public List<Notice> getNoticeList(){
+    public List<Notice> getNoticeList(int pageSize){
         List<Notice> notiList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_ALL);
+            pstmt = conn.prepareStatement(DBConnect.NOTICE_SELECT_LIMIT);
+            pstmt.setInt(1, pageSize);
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Notice noti = new Notice();
@@ -65,10 +66,15 @@ public class NoticeDAO {
                 noti.setNo(rs.getInt("no"));
                 noti.setTitle(rs.getString("title"));
                 noti.setContent(rs.getString("content"));
-                noti.setResdate(rs.getString("resdate"));
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date d = sdf.parse(rs.getString("resdate"));
+                noti.setResdate(sdf.format(d));
                 noti.setVisited(rs.getInt("visited"));
             }
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
@@ -104,9 +110,9 @@ public class NoticeDAO {
         String sql = "update notice set title=?, content=? where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, "수정 DAO테스트1");
-            pstmt.setString(2, "수정 DAO테스트내용입니다.1");
-            pstmt.setInt(3, 3);
+            pstmt.setString(1, noti.getTitle());
+            pstmt.setString(2, noti.getContent());
+            pstmt.setInt(3, noti.getNo());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -127,7 +133,7 @@ public class NoticeDAO {
         String sql = "delete from notice where no=?";
         try {
             pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, 5);
+            pstmt.setInt(1, no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

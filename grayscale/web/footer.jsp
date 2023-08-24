@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<c:set var="path1" value="<%=request.getContextPath()%>"/>
+<c:set var="path2" value="<%=request.getContextPath()%>"/>
 <!-- Footer Section Begin -->
 <footer class="footer">
     <div class="container">

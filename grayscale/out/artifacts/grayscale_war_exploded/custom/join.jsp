@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container-fluid m-0 p-0">
-    <jsp:include page="../header.jsp" />
+    <%@ include file="../header.jsp" %>
     <div class="section">
         <section class="bg-image"
                  style="background-image: url('https://cdn.pixabay.com/photo/2017/07/17/00/58/coffee-2511065_1280.jpg'); background-repeat: no-repeat; background-size: cover; padding: 80px">

@@ -11,16 +11,6 @@
     <title> grayscale </title>
     <c:set var="path" value="<%=request.getContextPath()%>"/>
     <%@ include file="../common.jsp" %>
-
-    <!-- Css Styles -->
-    <link rel="stylesheet" href="${path}/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="${path}/css/style.css" type="text/css">
 </head>
 
 <body>
