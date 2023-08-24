@@ -1,0 +1,28 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="grayscale:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/grayscale_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="grayscale/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="grayscale" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="sun.mail.javax" />
+          <element id="library" level="project" name="postgresql" />
+          <element id="library" level="project" name="google.code.gson" />
+          <element id="library" level="project" name="mariadb.jdbc.java.client" />
+          <element id="library" level="project" name="jstl" />
+          <element id="library" level="project" name="jsoup" />
+          <element id="library" level="project" name="javax.mail.api" />
+          <element id="library" level="project" name="javax.json.api" />
+          <element id="library" level="project" name="crypto" />
+          <element id="library" level="project" name="cos" />
+          <element id="library" level="project" name="net.markenwerk.utils.json.parser" />
+          <element id="library" level="project" name="junit" />
+          <element id="library" level="project" name="json" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

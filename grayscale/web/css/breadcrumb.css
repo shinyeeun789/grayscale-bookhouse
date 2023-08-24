@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+.breadcrumb_wrap {
+    margin-top: 20px;
+    margin-left: -23px;
+}
+
+.breadcrumb>li+li:before {
+    content: "" !important;
+}
+
+.breadcrumb {
+    padding: 19px;
+    font-size: 14px;
+    color: #aaa !important;
+    letter-spacing: 2px;
+    border-radius: 5px !important;
+}
+
+.first ol {
+    border-top-right-radius: 200px !important;
+    border-bottom-right-radius: 200px !important;
+}
+
+.first-1 {
+    background-color: white !important;
+}
+
+
+a {
+    text-decoration: none !important;
+}
+
+a:focus,
+a:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.first span {
+    color: black;
+}
+
+.first a:hover {
+    color: black !important;
+}
+
+.active-1 span {
+    color: white !important;
+}
+
+.active-1 {
+    font-size: 13px !important;
+    padding-bottom: 12px !important;
+    padding-top: 12px !important;
+    padding-right: 25px !important;
+    padding-left: 25px !important;
+    border-radius: 200px !important;
+    background-color: #333 !important;
+}
+
+@media (max-width: 767px) {
+    .breadcrumb {
+        font-size: 10px;
+    }
+
+    .breadcrumb-item+.breadcrumb-item {
+        padding-left: 0;
+    }
+
+    img {
+        width: 11px;
+        height: 11px;
+        vertical-align: middle;
+    }
+
+    .active-1 {
+        font-size: 10px !important;
+        padding-right: 8px !important;
+        padding-left: 8px !important;
+        background-color: #333 !important;
+        width: 100% ! important;
+    }
+
+    .breadcrumb {
+        letter-spacing: 1px !important;
+    }
+
+    .breadcrumb>* div {
+        max-width: 60px;
+    }
+
+}
