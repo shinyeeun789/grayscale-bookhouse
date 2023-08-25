@@ -9,14 +9,14 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/getQna.do")
-public class getQna extends HttpServlet {
+public class GetQnaCtrl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int qno = Integer.parseInt(request.getParameter("qno"));
         QnaDAO dao = new QnaDAO();
         Qna qna = dao.getQna(qno);
         request.setAttribute("qna", qna);
-        RequestDispatcher view = request.getRequestDispatcher("/notice/getQna.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/qna/getQna.jsp");
         view.forward(request, response);
     }
 }

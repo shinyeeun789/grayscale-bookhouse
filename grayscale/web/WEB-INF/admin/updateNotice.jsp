@@ -20,11 +20,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4> 공지사항 상세 보기 </h4>
+                        <h4> 공지사항 글 수정하기 </h4>
                         <div class="breadcrumb__links">
                             <a href="${path}/">Home</a>
-                            <a href="javascript: history.go(-1)">공지사항</a>
-                            <span> 공지사항 상세 보기 </span>
+                            <a href="${path}/NoticeList.do?page=1">공지사항</a>
+                            <span> 공지사항 글 수정하기 </span>
                         </div>
                     </div>
                 </div>

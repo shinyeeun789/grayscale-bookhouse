@@ -107,9 +107,8 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "update notice set title=?, content=? where no=?";
         try {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(DBConnect.NOTICE_UPDATE);
             pstmt.setString(1, noti.getTitle());
             pstmt.setString(2, noti.getContent());
             pstmt.setInt(3, noti.getNo());
@@ -130,9 +129,8 @@ public class NoticeDAO {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "delete from notice where no=?";
         try {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(DBConnect.NOTICE_DELETE);
             pstmt.setInt(1, no);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {

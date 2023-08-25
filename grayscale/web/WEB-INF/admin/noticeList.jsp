@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>공지사항 목록</title>
+    <c:set var="path" value="<%=request.getContextPath()%>"/>
     <%@ include file="../../common.jsp"%>
     <style>
     #tb1 { width:960px; margin:40px auto; }

@@ -34,6 +34,9 @@ public class Page {
             case "notice":
                 pstmt = conn.prepareStatement(DBConnect.SELECT_NOTICE_COUNT);
                 break;
+            case "qna":
+                pstmt = conn.prepareStatement(DBConnect.SELECT_QNA_COUNT);
+                break;
         }
         rs = pstmt.executeQuery();
         if(rs.next()) {

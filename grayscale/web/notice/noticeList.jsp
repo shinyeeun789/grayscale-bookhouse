@@ -67,6 +67,11 @@
                         <td class="col-md-2 text-center"> ${notice.resdate} </td>
                     </tr>
                 </c:forEach>
+                <c:if test="${paging.pageList.size() eq 0}">
+                    <tr>
+                        <td class="col-md-12 text-center" colspan="3"> 등록된 공지사항이 없습니다 :) </td>
+                    </tr>
+                </c:if>
                 </tbody>
             </table>
             <!-- 페이징 -->
@@ -109,11 +114,6 @@
                 </div>
             </c:if>
         </div>
-        <c:if test="${curPage eq 1}">
-            <script>
-                $(".table tr:first-of-type td:nth-child(2), .table tr:nth-of-type(2) td:nth-child(2)").addClass("new");
-            </script>
-        </c:if>
     </div>
     <%@ include file="../footer.jsp" %>
 </div>

@@ -3,7 +3,6 @@ package com.shop.controller.Qna;
 import com.shop.dto.Qna;
 import com.shop.model.QnaDAO;
 
-import javax.mail.Session;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/AddQnaPro.do")
-public class AddQnaCtrl extends HttpServlet {
+public class AddQnaProCtrl extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -23,6 +22,8 @@ public class AddQnaCtrl extends HttpServlet {
         qna.setTitle(request.getParameter("title"));
         qna.setContent(request.getParameter("content"));
         qna.setLev(Integer.parseInt(request.getParameter("lev")));
+        int par = request.getParameter("par")!=null ? Integer.parseInt(request.getParameter("par")) : 0;
+        qna.setPar(par);
 
         PrintWriter out = response.getWriter();
 

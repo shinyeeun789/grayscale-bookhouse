@@ -29,7 +29,7 @@
                         <h4> 공지사항 글 작성 </h4>
                         <div class="breadcrumb__links">
                             <a href="${path}/">Home</a>
-                            <a href="javascript: history.go(-1)">공지사항</a>
+                            <a href="${path}/NoticeList.do?page=1">공지사항</a>
                             <span> 공지사항 글 작성 </span>
                         </div>
                     </div>

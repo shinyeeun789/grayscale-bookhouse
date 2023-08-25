@@ -50,7 +50,7 @@
                         <li><a href="#"> 고객지원 </a>
                             <ul class="dropdown">
                                 <li><a href="${path1}/NoticeList.do?page=1"> 공지사항 </a></li>
-                                <li><a href="./shop-details.html"> QnA </a></li>
+                                <li><a href="${path}/QnaList.do?page=1"> QnA </a></li>
                             </ul>
                         </li>
                     </ul>

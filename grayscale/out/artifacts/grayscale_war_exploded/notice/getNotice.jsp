@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> 공지사항 글 보기 </title>
+    <c:set var="path" value="<%=request.getContextPath()%>"/>
     <%@ include file="../common.jsp"%>
 
     <style>
@@ -27,11 +28,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
-                            <h4> 공지사항 글 수정 </h4>
+                            <h4> 공지사항 글 상세보기 </h4>
                             <div class="breadcrumb__links">
                                 <a href="${path}/">Home</a>
-                                <a href="javascript: history.go(-1)">공지사항</a>
-                                <span> 공지사항 글 수정 </span>
+                                <a href="${path}/NoticeList.do?page=1">공지사항</a>
+                                <span> 공지사항 글 상세보기 </span>
                             </div>
                         </div>
                     </div>
@@ -64,14 +65,14 @@
 
                     <c:if test="${sid eq 'admin1234' }">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="javascript:history.go(-1)" class="btn btn-dark"> 목록 </a>
-                            <a href="UpdateNotice.do?no=${noti.no}" class="btn btn-primary"> 수정 </a>
-                            <a href="DeleteNotice.do?no=${noti.no}" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')"> 삭제 </a>
+                            <a href="${path}/NoticeList.do?page=1" class="btn btn-dark"> 목록 </a>
+                            <a href="${path}/UpdateNotice.do?no=${noti.no}" class="btn btn-primary"> 수정 </a>
+                            <a href="${path}/DeleteNotice.do?no=${noti.no}" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')"> 삭제 </a>
                         </div>
                     </c:if>
                     <c:if test="${sid ne 'admin1234'}">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="javascript:history.go(-1)" class="btn btn-dark"> 목록으로 </a>
+                            <a href="${path}/NoticeList.do?page=1" class="btn btn-dark"> 목록으로 </a>
                         </div>
                     </c:if>
                 </div>
