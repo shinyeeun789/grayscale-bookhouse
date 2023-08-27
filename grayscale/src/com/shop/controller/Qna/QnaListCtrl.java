@@ -26,7 +26,7 @@ public class QnaListCtrl extends HttpServlet {
         // 페이징 처리
         Page page = new Page();
         try {
-            page.paging(curPage, 10, 5, "qna");
+            page.paging(curPage, 10, 5, "qna", null);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -42,8 +42,8 @@
                     <p>Copyright ©
                         <script>
                             document.write(new Date().getFullYear());
-                        </script>2020
-                        All rights reserved | This template is made with <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        </script>
+                        SHINYEEUN | This template is made with <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     </p>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 </div>

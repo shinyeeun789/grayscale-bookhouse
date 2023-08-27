@@ -55,3 +55,70 @@ values (default, '더미글12', '더미글12의 내용입니다.', default, defa
 
 select * from notice;
 
+-- 상품 테이블 생성
+create table product(
+	pno serial primary key,
+	cate varchar(3) not null, 
+	prono varchar(10) not null,
+	pname varchar(100) not null, 
+	pcomment varchar(2000) not null,
+	plist varchar(2000), 
+	price integer default 1000,
+	imgsrc1 varchar(256) default 'noimg.jpg',
+	imgsrc2 varchar(256) default 'noimg.jpg',
+	imgsrc3 varchar(256) default 'noimg.jpg',
+	resdate timestamp default current_timestamp);	
+
+insert into product(cate, prono, pname, pcomment, plist, price, imgsrc1, imgsrc2, imgsrc3)
+values('A','A4','테스트도서1', '테스트도서1입니다.', '테스트도서1의 책의 목차입니다.', 10000, 'study.jpg','teacher01.jpg','teacher02.png');
+select * from product;
+select * from serve;
+
+select r.pno, r.amount-(case when s.amount is not null then s.amount else 0 end) as amount, rprice from receive r left outer join serve s on(r.pno=s.pno);
+
+select r.pno, sum(r.amount)-sum(s.amount) as amount, avg(rprice) from receive r left outer join serve s on (r.pno=s.pno) group by r.pno, s.pno;
+	
+select pname, cname, i.rprice, i.amount as amount, price 
+from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno);
+
+
+-- 입고 테이블 생성
+create table receive(
+	rno serial primary key,
+	pno integer not null unique, 
+	amount integer default 1,
+	rprice integer default 1000,
+	resdate timestamp default current_timestamp);
+
+-- 입고 등록 쿼리문
+insert into receive(pno, amount, rprice)
+values (1, 10, 15000)
+on conflict(pno)
+do update
+set amount = (select amount from receive where pno=1)+10, rprice = ((select rprice from receive where pno=1) + 10000) / 2
+
+-- 출고 테이블 생성
+create table serve(sno serial primary key,
+pno integer not null, amount integer default 1,
+sprice integer default 1000,
+resdate timestamp default current_timestamp);
+
+insert into serve values(default, 1, 2, 15000, default);
+
+-- 카테고리 테이블 생성
+create table category(
+	cno varchar(4) primary key,
+	cname varchar(100) not null
+);
+
+-- 카테고리 등록
+insert into category values('A', '교과서');
+insert into category values('B', '참고서');
+insert into category values('C', '문제집');
+insert into category values('D', '기타');
+insert into category values('E', '해외서적');
+
+-- 재고 처리 뷰
+create view inventory as (select r.pno, r.amount-(case when s.amount is not null then s.amount else 0 end) as amount, rprice from receive r left outer join serve s on(r.pno=s.pno));
+select * from inventory;
+drop view inventory;

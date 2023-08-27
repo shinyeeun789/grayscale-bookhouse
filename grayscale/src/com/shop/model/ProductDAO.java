@@ -48,7 +48,7 @@ public class ProductDAO {
         DBConnect con = new PostgreCon();
         try {
             conn = con.connect();
-            pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_ALL_WITH_CATE);
+            pstmt = conn.prepareStatement(DBConnect.SELECT_PRODUCTVO);
             rs = pstmt.executeQuery();
             while(rs.next()){
                 ProductListVO pro = new ProductListVO();
@@ -74,6 +74,69 @@ public class ProductDAO {
         try {
             conn = con.connect();
             pstmt = conn.prepareStatement(DBConnect.PRODUCT_SELECT_ALL);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Product pro = new Product();
+                pro.setPno(rs.getInt("pno"));
+                pro.setCate(rs.getString("cate"));
+                pro.setProno(rs.getString("prono"));
+                pro.setPname(rs.getString("pname"));
+                pro.setPcomment(rs.getString("pcomment"));
+                pro.setPlist(rs.getString("plist"));
+                pro.setPrice(rs.getInt("price"));
+                pro.setImgSrc1(rs.getString("imgsrc1"));
+                pro.setImgSrc2(rs.getString("imgsrc2"));
+                pro.setImgSrc3(rs.getString("imgsrc3"));
+                pro.setResdate(rs.getString("resdate"));
+                proList.add(pro);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return proList;
+    }
+
+    public List<Product> getCateProductListLimit(String cate, int pageSize) {
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_LIST_CATE_LIMIT);
+            pstmt.setString(1, cate);
+            pstmt.setInt(2, pageSize);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                Product pro = new Product();
+                pro.setPno(rs.getInt("pno"));
+                pro.setCate(rs.getString("cate"));
+                pro.setProno(rs.getString("prono"));
+                pro.setPname(rs.getString("pname"));
+                pro.setPcomment(rs.getString("pcomment"));
+                pro.setPlist(rs.getString("plist"));
+                pro.setPrice(rs.getInt("price"));
+                pro.setImgSrc1(rs.getString("imgsrc1"));
+                pro.setImgSrc2(rs.getString("imgsrc2"));
+                pro.setImgSrc3(rs.getString("imgsrc3"));
+                pro.setResdate(rs.getString("resdate"));
+                proList.add(pro);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return proList;
+    }
+
+    public List<Product> getProductListLimit(int pageSize) {
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.PRODUCT_LIST_LIMIT);
+            pstmt.setInt(1, pageSize);
             rs = pstmt.executeQuery();
             while(rs.next()){
                 Product pro = new Product();

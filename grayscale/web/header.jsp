@@ -15,7 +15,6 @@
                             <c:if test="${sid eq 'admin1234' }">
                                 <a href="${path1}/AdminProList.do"> Admin Notice </a>
                             </c:if>
-                            <a href="${path1}/Contact.do"> Contact Us </a>
                         </c:if>
                         <c:if test="${empty sid}">
                             <a href="${path1}/Login.do"> Login </a>
@@ -36,9 +35,9 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li><a href="${path1}/ProList.do"> 베스트 </a></li>
-                        <li><a href="${path1}/ProList.do"> 신상품 </a></li>
-                        <li><a href="#"> 카테고리 </a>
+                        <li><a href=""> 베스트 </a></li>
+                        <li><a href=""> 신상품 </a></li>
+                        <li><a href="${path1}/ProductList.do?cate=None&page=1"> 카테고리 </a>
                             <ul class="dropdown">
                                 <li><a href="./about.html"> 교과서 </a></li>
                                 <li><a href="./shop-details.html"> 참고서 </a></li>

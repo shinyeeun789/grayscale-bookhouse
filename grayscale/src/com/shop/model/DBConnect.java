@@ -33,9 +33,17 @@ public interface DBConnect {
     final static String QNA_DELETE = "DELETE FROM qna WHERE qno=(SELECT qno FROM qna WHERE lev=1 AND qno=?) OR par=(SELECT par FROM qna WHERE lev=0 AND par=?)";
 
     // Product 테이블 SQL문
+    final static String SELECT_PRODUCT_COUNT = "select count(*) as cnt from product";
+    final static String SELECT_PRODUCT_COUNT_WITH_CATE = "select count(*) as cnt from product where cate=?";
     final static String PRODUCT_SELECT_ALL = "select * from product order by pno";
-    final static String PRODUCT_SELECT_ALL_WITH_CATE = "select pname, cname, i.rprice, i.amount as amount, price " +
+    final static String PRODUCT_LIST_LIMIT = "SELECT * FROM product order BY pno DESC LIMIT 12 OFFSET ?";
+    final static String PRODUCT_LIST_CATE_LIMIT = "SELECT * FROM product where cate=? order BY pno DESC LIMIT 12 OFFSET ?";
+    final static String SELECT_PRODUCTVO = "select pname, cname, i.rprice, i.amount as amount, price " +
             "from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno)";
+    final static String CATE_PRODUCT_SELECT = "select * from product where cate=? order by price asc";
+    final static String CATE_PRODUCT_SELECT_DESC = "select * from product where cate=? order by price desc";
+    final static String PRODUCT_SELECT_ASC = "select * from product order by price asc";
+    final static String PRODUCT_SELECT_DESC = "select * from product order by price desc";
     final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default)";
     final static String PRODUCT_INSERT_UPDATE = "update product set prono = concat(cate, pno) where pno in (select pno from product order by resdate desc limit 1)";
 

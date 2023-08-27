@@ -31,7 +31,7 @@ public class NoticeListCtrl extends HttpServlet {
         // 페이징 처리
         Page page = new Page();
         try {
-            page.paging(curPage, 10, 5, "notice");
+            page.paging(curPage, 10, 5, "notice", null);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

@@ -20,7 +20,7 @@ public class Page {
     private int nextPage = 1;
     private List<Integer> pageList;
 
-    public void paging(int pageNum, int pageSize, int pageBlock, String dbName) throws SQLException {
+    public void paging(int pageNum, int pageSize, int pageBlock, String dbName, String cate) throws SQLException {
         // 전체 데이터 개수 가져오기
         int totalCount = 0;             // 전체 페이지 수
 
@@ -36,6 +36,14 @@ public class Page {
                 break;
             case "qna":
                 pstmt = conn.prepareStatement(DBConnect.SELECT_QNA_COUNT);
+                break;
+            case "product":
+                if(!cate.equals("None")) {
+                    pstmt = conn.prepareStatement(DBConnect.SELECT_PRODUCT_COUNT_WITH_CATE);
+                    pstmt.setString(1, cate);
+                } else {
+                    pstmt = conn.prepareStatement(DBConnect.SELECT_PRODUCT_COUNT);
+                }
                 break;
         }
         rs = pstmt.executeQuery();
