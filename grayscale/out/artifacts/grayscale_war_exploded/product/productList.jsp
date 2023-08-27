@@ -12,6 +12,10 @@
 </head>
 <body>
 <div class="container-fluid m-0 p-0">
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
     <%@ include file="../header.jsp"%>
     <!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
@@ -69,32 +73,17 @@
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <h4 class="cate mb-5"></h4>
+                        <h4 class="cate mb-3 font-weight-bold"></h4>
                         <div class="row">
                             <c:forEach var="pro" items="${proList}" varStatus="status">
                                 <div class="col-lg-4 col-md-6 col-sm-6">
-                                    <div class="product__item">
+                                    <div class="product__item" onclick="javascript:location.href='${path}/Product.do?pno=${pro.pno}'" style="cursor:pointer;">
                                         <div class="product__item__pic" style="background-image: url('${path}/storage/${pro.imgSrc1}'); background-size: cover" alt="상품 이미지">
-                                            <ul class="product__hover">
-                                                <li><a href="#"><img src="${path}/images/heart.png" alt=""></a></li>
-                                                <li><a href="${path}/Product.do=pno=${pro.pno}"><img src="${path}/images/search.png" alt="상세보기 버튼"></a></li>
-                                            </ul>
                                         </div>
                                         <div class="product__item__text">
                                             <h6>${pro.pname}</h6>
-                                            <a href="#" class="add-cart">+ Add To Cart</a>
+                                            <a href="${path}/Product.do?pno=${pro.pno}" class="add-cart"> 장바구니 담기 </a>
                                             <h5>${pro.price}원</h5>
-                                            <div class="product__color__select">
-                                                <label for="pc-4">
-                                                    <input type="radio" id="pc-4">
-                                                </label>
-                                                <label class="active black" for="pc-5">
-                                                    <input type="radio" id="pc-5">
-                                                </label>
-                                                <label class="grey" for="pc-6">
-                                                    <input type="radio" id="pc-6">
-                                                </label>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

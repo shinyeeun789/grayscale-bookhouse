@@ -39,11 +39,10 @@
                         <li><a href=""> 신상품 </a></li>
                         <li><a href="${path1}/ProductList.do?cate=None&page=1"> 카테고리 </a>
                             <ul class="dropdown">
-                                <li><a href="./about.html"> 교과서 </a></li>
-                                <li><a href="./shop-details.html"> 참고서 </a></li>
-                                <li><a href="./shopping-cart.html"> 문제집 </a></li>
-                                <li><a href="./checkout.html"> 기타 </a></li>
-                                <li><a href="./blog-details.html"> 해외서적 </a></li>
+                                <li><a href="${path}/ProductList.do?cate=A&page=1"> 교과서 </a></li>
+                                <li><a href="${path}/ProductList.do?cate=B&page=1"> 참고서 </a></li>
+                                <li><a href="${path}/ProductList.do?cate=C&page=1"> 문제집 </a></li>
+                                <li><a href="${path}/ProductList.do?cate=D&page=1"> 기타 </a></li>
                             </ul>
                         </li>
                         <li><a href="#"> 고객지원 </a>

@@ -31,7 +31,7 @@ public class AddProductProCtrl extends HttpServlet {
             pro.setCate(mr.getParameter("cate"));
             pro.setPname(mr.getParameter("pname"));
             pro.setPcomment(mr.getParameter("pcomment"));
-            pro.setPlist(mr.getParameter("plist"));
+            pro.setPlist(mr.getParameter("plist").replace("\r\n", "<br>"));
             pro.setPrice(Integer.parseInt(mr.getParameter("price")));
 
             File upfile = null;

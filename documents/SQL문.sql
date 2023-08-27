@@ -69,8 +69,6 @@ create table product(
 	imgsrc3 varchar(256) default 'noimg.jpg',
 	resdate timestamp default current_timestamp);	
 
-insert into product(cate, prono, pname, pcomment, plist, price, imgsrc1, imgsrc2, imgsrc3)
-values('A','A4','테스트도서1', '테스트도서1입니다.', '테스트도서1의 책의 목차입니다.', 10000, 'study.jpg','teacher01.jpg','teacher02.png');
 select * from product;
 select * from serve;
 

@@ -161,6 +161,57 @@ public class ProductDAO {
         return proList;
     }
 
+    public Product getProduct(int pno) {
+        Product product =new Product();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_PNO_PRODUCT);
+            pstmt.setInt(1, pno);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                product.setPno(rs.getInt("pno"));
+                product.setCate(rs.getString("cate"));
+                product.setProno(rs.getString("prono"));
+                product.setPname(rs.getString("pname"));
+                product.setPcomment(rs.getString("pcomment"));
+                product.setPlist(rs.getString("plist"));
+                product.setPrice(rs.getInt("price"));
+                product.setImgSrc1(rs.getString("imgsrc1"));
+                product.setImgSrc2(rs.getString("imgsrc2"));
+                product.setImgSrc3(rs.getString("imgsrc3"));
+                product.setResdate(rs.getString("resdate"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return product;
+    }
+
+    public List<Product> getRelated(int pno) {
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_RELATED);
+            pstmt.setInt(1, pno);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Product product =new Product();
+                product.setPno(rs.getInt("pno"));
+                product.setCate(rs.getString("cate"));
+                product.setProno(rs.getString("prono"));
+                product.setPname(rs.getString("pname"));
+                product.setPrice(rs.getInt("price"));
+                product.setImgSrc1(rs.getString("imgsrc1"));
+                proList.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return proList;
+    }
+
     public int addProduct(Product pro) {
         int cnt = 0;
         DBConnect con = new PostgreCon();
