@@ -67,7 +67,10 @@ create table product(
 	imgsrc1 varchar(256) default 'noimg.jpg',
 	imgsrc2 varchar(256) default 'noimg.jpg',
 	imgsrc3 varchar(256) default 'noimg.jpg',
-	resdate timestamp default current_timestamp);	
+	resdate timestamp default current_timestamp);
+	
+select * from product where cate in (select cate from product where pno=1) order by random() limit 4;
+
 
 select * from product;
 select * from serve;
@@ -115,6 +118,16 @@ insert into category values('B', '참고서');
 insert into category values('C', '문제집');
 insert into category values('D', '기타');
 insert into category values('E', '해외서적');
+
+-- 카트 테이블 생성
+create table cart(
+	cartno serial primary key,
+	cid varchar(20) not null,
+	pno integer not null,
+	amount integer not null
+);
+
+select cartno, cid, c.pno, pname, amount, price from cart c, product p where c.pno=p.pno and cid='kimname1';
 
 -- 재고 처리 뷰
 create view inventory as (select r.pno, r.amount-(case when s.amount is not null then s.amount else 0 end) as amount, rprice from receive r left outer join serve s on(r.pno=s.pno));

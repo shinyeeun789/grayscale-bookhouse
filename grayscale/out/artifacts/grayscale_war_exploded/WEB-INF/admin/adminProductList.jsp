@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
-                            <h4> MyPage </h4>
+                            <h4> Admin Notice </h4>
                             <div class="breadcrumb__links">
                                 <a href="${path}/">Home</a>
                                 <span> Admin Notice </span>
@@ -70,11 +70,11 @@
                             <tbody>
                             <c:forEach var="pro" items="${proList}">
                                 <tr>
-                                    <td class="text-center"> ${pro.pname } </td>
-                                    <td class="text-center"> ${pro.cname } </td>
-                                    <td class="text-right"> ${pro.rprice }원 </td>
-                                    <td class="text-right"> ${pro.amount }개 </td>
-                                    <td class="text-right"> ${pro.price }원 </td>
+                                    <td class="text-center align-middle"> ${pro.pname } </td>
+                                    <td class="text-center align-middle"> ${pro.cname } </td>
+                                    <td class="text-right align-middle"> ${pro.rprice }원 </td>
+                                    <td class="text-right align-middle"> ${pro.amount }개 </td>
+                                    <td class="text-right align-middle"> ${pro.price }원 </td>
                                 </tr>
                             </c:forEach>
                             </tbody>

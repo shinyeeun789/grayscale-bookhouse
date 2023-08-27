@@ -50,6 +50,15 @@ public interface DBConnect {
             "do update set amount = (select amount from receive where pno=?)+?, rprice=((select rprice from receive where pno=?) + ?)/2";
     final static String CATEGORY_LOAD = "select * from category";
 
+    // 장바구니 테이블 SQL문
+    final static String CART_INSERT = "insert into cart values (default, ?, ?, ?) on conflict(pno) " +
+            "do update set amount = (select amount from cart where pno=?)+?";
+    final static String CART_DELETE = "delete from cart where cartno=?";
+    final static String CART_SELECT_CID = "select cartno, cid, c.pno, pname, amount, price from cart c, product p where c.pno=p.pno and cid=?";
+
+    // 재고 조회
+    final static String INVENTORY_SELECT_ONE = "select * from inventory where pno=?";
+
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn);

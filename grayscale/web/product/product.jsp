@@ -9,6 +9,10 @@
     <title> 상품 상세정보 </title>
     <c:set var="path" value="<%=request.getContextPath()%>"/>
     <%@ include file="../common.jsp"%>
+
+    <script>
+        if('${param.msg}'=='fail') { alert("로그인 후 장바구니에 담을 수 있습니다."); }
+    </script>
 </head>
 <body>
 <div class="container-fluid m-0 p-0">
@@ -106,12 +110,16 @@
                             </div>
                             <h3> ${product.price}원 </h3>
                             <div class="product__details__cart__option">
-                                <div class="quantity">
-                                    <div class="pro-qty">
-                                        <input type="text" value="1">
+                                <form action="${path}/AddCartPro.do" method="post" onsubmit="return ${amount > 0}">
+                                    <div class="quantity">
+                                        <c:if test="${amount>0}">
+                                            <input class="form-control" type="number" id="amount" name="amount" value="1" min="0" max="${amount}">
+                                        </c:if>
+                                        <c:if test="${amount==0}"><strong> 절판된 도서입니다 </strong></c:if>
+                                        <input type="hidden" id="pno" name="pno" value="${product.pno}">
                                     </div>
-                                </div>
-                                <a href="#" class="primary-btn"> 장바구니 담기 </a>
+                                    <button type="submit" class="primary-btn"> 장바구니 담기 </button>
+                                </form>
                             </div>
                         </div>
                     </div>

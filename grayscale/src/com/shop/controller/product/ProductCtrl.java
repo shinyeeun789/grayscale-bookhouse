@@ -17,12 +17,15 @@ public class ProductCtrl extends HttpServlet {
 
         ProductDAO dao = new ProductDAO();
         Product product = dao.getProduct(pno);
+        int amount = dao.getAmount(pno);
 
         // 연관된 제품 가져오기
         List<Product> relatedProducts = dao.getRelated(pno);
 
-        request.setAttribute("relProducts", relatedProducts);
         request.setAttribute("product", product);
+        request.setAttribute("amount", amount);
+        request.setAttribute("relProducts", relatedProducts);
+
         RequestDispatcher view = request.getRequestDispatcher("/product/product.jsp");
         view.forward(request, response);
     }
