@@ -49,7 +49,7 @@
                     <div class="border p-4">
                         <a href="${path}/AdminProList.do" class="d-block mt-2 mb-2" style="color:#0275d8; font-weight:bold"> 상품 목록 </a>
                         <a href="${path}/AddProduct.do" class="d-block mb-2"> 상품 등록 </a>
-                        <a href="${path}/" class="d-block mb-2"> 상품 입고 </a>
+                        <a href="${path}/AddReceive.do" class="d-block mb-2"> 상품 입고 </a>
                         <a href="" class="d-block mb-2"> 리뷰 관리 </a>
                         <a href="" class="d-block mb-2"> 할인쿠폰 관리 </a>
                     </div>
@@ -72,9 +72,9 @@
                                 <tr>
                                     <td class="text-center"> ${pro.pname } </td>
                                     <td class="text-center"> ${pro.cname } </td>
-                                    <td class="text-right"> ${pro.rprice } </td>
-                                    <td class="text-right"> ${pro.amount } </td>
-                                    <td class="text-right"> ${pro.price } </td>
+                                    <td class="text-right"> ${pro.rprice }원 </td>
+                                    <td class="text-right"> ${pro.amount }개 </td>
+                                    <td class="text-right"> ${pro.price }원 </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
