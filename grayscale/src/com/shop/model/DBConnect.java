@@ -32,6 +32,16 @@ public interface DBConnect {
     final static String QNA_UPDATE_PAR = "update qna set par=qno where lev=0 and par=0";
     final static String QNA_DELETE = "DELETE FROM qna WHERE qno=(SELECT qno FROM qna WHERE lev=1 AND qno=?) OR par=(SELECT par FROM qna WHERE lev=0 AND par=?)";
 
+    // Product 테이블 SQL문
+    final static String PRODUCT_SELECT_ALL_WITH_CATE = "select pname, cname, rprice, i.amount as amount, price " +
+            "from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno)";
+    final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default)";
+    final static String PRODUCT_INSERT_UPDATE = "update product set prono = concat(cate, pno) where pno in (select pno from product order by resdate desc limit 1)";
+
+    //입고 처리 패턴
+    final static String PRODUCT_RECEIVE = "insert into receive values (default, ?, ?, ?, default)";
+    final static String CATEGORY_LOAD = "select * from category";
+
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);
     public void close(ResultSet rs, PreparedStatement pstmt, Connection conn);

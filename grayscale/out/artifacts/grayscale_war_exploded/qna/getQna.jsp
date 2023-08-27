@@ -65,7 +65,7 @@
 
                     <c:if test="${sid eq 'admin1234' }">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="${path}/QnaList.do?page=1" class="btn btn-dark"> 목록 </a>
+                            <a href="${path}/QnaList.do?page=1" class="btn btn-dark"> 목록으로 </a>
                             <c:if test="${qna.lev eq 0}">
                                 <a href="${path}/AddAnswer.do?qno=${qna.qno}" class="btn btn-primary"> 답변 달기 </a>
                             </c:if>
@@ -74,7 +74,7 @@
                     </c:if>
                     <c:if test="${sid eq qna.author and sid ne 'admin1234'}">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="${path}/QnaList.do?page=1" class="btn btn-dark"> 목록 </a>
+                            <a href="${path}/QnaList.do?page=1" class="btn btn-dark"> 목록으로 </a>
                             <a href="${path}/UpdateQna.do?qno=${qna.qno}" class="btn btn-primary"> 수정 </a>
                         </div>
                     </c:if>

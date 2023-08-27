@@ -1,8 +1,6 @@
 package com.shop.controller.Qna;
 
-import com.shop.dto.Notice;
 import com.shop.dto.Qna;
-import com.shop.model.NoticeDAO;
 import com.shop.model.QnaDAO;
 
 import javax.servlet.*;
