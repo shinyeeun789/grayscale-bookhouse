@@ -26,11 +26,12 @@ public class CartDAO {
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_INSERT);
-            pstmt.setString(1, cart.getCid());
-            pstmt.setInt(2, cart.getPno());
-            pstmt.setInt(3, cart.getAmount());
-            pstmt.setInt(4, cart.getPno());
-            pstmt.setInt(5, cart.getAmount());
+            pstmt.setString(1, cart.getCartno());
+            pstmt.setString(2, cart.getCid());
+            pstmt.setInt(3, cart.getPno());
+            pstmt.setInt(4, cart.getAmount());
+            pstmt.setString(5, cart.getCartno());
+            pstmt.setInt(6, cart.getAmount());
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -66,7 +67,7 @@ public class CartDAO {
             rs = pstmt.executeQuery();
             while(rs.next()){
                 CartVO cart = new CartVO();
-                cart.setCartno(rs.getInt("cartno"));
+                cart.setCartno(rs.getString("cartno"));
                 cart.setCid(rs.getString("cid"));
                 cart.setName(getCusName(cart.getCid()));
                 cart.setPno(rs.getInt("pno"));

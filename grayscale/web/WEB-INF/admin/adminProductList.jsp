@@ -50,8 +50,8 @@
                         <a href="${path}/AdminProList.do" class="d-block mt-2 mb-2" style="color:#0275d8; font-weight:bold"> 상품 목록 </a>
                         <a href="${path}/AddProduct.do" class="d-block mb-2"> 상품 등록 </a>
                         <a href="${path}/AddReceive.do" class="d-block mb-2"> 상품 입고 </a>
+                        <a href="${path}/DeliveryList.do" class="d-block mb-2"> 배송 정보 관리 </a>
                         <a href="" class="d-block mb-2"> 리뷰 관리 </a>
-                        <a href="" class="d-block mb-2"> 할인쿠폰 관리 </a>
                     </div>
                 </div>
                 <div class="col col-lg-10">

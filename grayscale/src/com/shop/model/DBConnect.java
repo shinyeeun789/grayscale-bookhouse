@@ -49,9 +49,17 @@ public interface DBConnect {
     // Payment 테이블 SQL문
     final static String SELECT_SNO = "select sno from payment order by sno desc limit 1";
     final static String INSERT_PAYMENT = "insert into payment(cid, pno, amount, pmethod, pcom, cnum, payprice) values(?,?,?,?,?,?,?)";
+    final static String PAYMENT_SELECT_ONE = "select * from payment where pno=?";
+    final static String PAYMENT_SELECT_LIST = "select * from payment where cid=? and cnum=?";
 
     // Delivery 테이블 SQL문
-    final static String INSERT_DELIVERY = "insert into delivery(sno, cid, daddr, custel) values(?,?,?,?)";
+    final static String INSERT_DELIVERY = "insert into delivery(cid, daddr, custel) values(?,?,?)";
+    final static String UPDATE_DELIVERY_SNO = "update delivery set sno=dno where sno=0";
+    final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT a.dno AS dno, b.cid, pname, payprice, pstate, sdate FROM delivery a, payment b, product c WHERE a.sno=b.sno AND b.pno=c.pno AND pstate=0 order by sdate, dno";
+    final static String DELCODE_GROUP_LIST = "select a.dno as dno, cnum, pname, sdate, rdate, bcode, pstate from delivery a, payment b, product c where a.sno=b.sno and b.pno=c.pno and bcode != '' and pstate < 6 group by cnum, dno, pname, sdate, rdate, bcode";
+    final static String DELIVERY_PRODUCT_SELECT_ONE = "SELECT a.dno, pname, b.cid, sdate, rdate, a.daddr, custel, a.pcom, ptel, pstate, cnum, bcode FROM delivery a, payment b, product c WHERE a.sno=b.sno AND b.pno=c.pno AND a.dno=?";
+    final static String DELIVERY_UPDATE = "update delivery set rdate=?, pcom=?, ptel=?, pstate=?, bcode=? where dno=?";
+    final static String DELIVERY_UPDATE_WITH_DELCODE = "update delivery set rdate=?, pcom=?, ptel=?, pstate=?, bcode=? where bcode=?";
 
     //입고 처리 패턴
     final static String RECEIVE_INSERT = "insert into receive(pno, amount, rprice) values (?, ?, ?) on conflict(pno) " +
@@ -59,8 +67,8 @@ public interface DBConnect {
     final static String CATEGORY_LOAD = "select * from category";
 
     // 장바구니 테이블 SQL문
-    final static String CART_INSERT = "insert into cart values (default, ?, ?, ?) on conflict(pno) " +
-            "do update set amount = (select amount from cart where pno=?)+?";
+    final static String CART_INSERT = "insert into cart values (?, ?, ?, ?) on conflict(cartno) " +
+            "do update set amount = (select amount from cart where cartno=?)+?";
     final static String CART_DELETE = "delete from cart where cartno=?";
     final static String CART_SELECT_CID = "select cartno, cid, c.pno, pname, amount, price from cart c, product p where c.pno=p.pno and cid=?";
 
@@ -70,6 +78,18 @@ public interface DBConnect {
     // 출고 처리 패턴
     final static String SERVE_PAYMENT = "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?)";
     final static String INSERT_SERVE = "insert into serve values(default, ?, ?, ?, default)";
+    
+    // 마이페이지 주문배송조회
+    final static String SELECT_MY_ORDER_LIST = "select pay.sno as sno, sdate, cnum, pname, amount, payprice, pstate from payment pay, delivery del, product pro where pay.sno = del.sno and pro.pno=pay.pno and pay.cid=? order by sdate desc";
+
+    // 반품 처리 SQL문
+    final static String RETURN_PAYMENT = "delete from payment where sno=?";
+    final static String RETURN_PAYMENTS = "delete from payment where cnum=?";
+    final static String RETURN_SERVE = "delete from serve where sno=?";
+    final static String RETURN_SERVES = "delete from serve where sno in (select sno from payment where cnum=?)";
+    final static String RETURN_CART = "insert into cart values (default, ?, ?, ?)";
+    final static String RETURN_DELIVERY = "delete from delivery where sno=?";
+    final static String RETURN_DELIVERIES = "delete from delivery where sno in (select sno from payment where cnum=?)";
 
 
     public Connection connect();

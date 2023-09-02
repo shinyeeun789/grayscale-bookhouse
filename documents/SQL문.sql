@@ -152,7 +152,7 @@ create table payment(
 -- 배송 테이블 생성
 create table delivery(
 	dno serial primary key,
-	sno integer not null, 
+	sno integer not null default 0, 
 	cid varchar(20) not null,
 	daddr varchar(300) not null, 
 	custel varchar(13) not null,

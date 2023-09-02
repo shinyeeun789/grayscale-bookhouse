@@ -1,16 +1,16 @@
 package com.shop.dto;
 
 public class Cart {
-    private int cartno;     //카트번호
+    private String cartno;     //카트번호
     private String cid;     //고객아이디
     private int pno;        //제품번호
     private int amount;     //제품수량
 
-    public int getCartno() {
+    public String getCartno() {
         return cartno;
     }
 
-    public void setCartno(int cartno) {
+    public void setCartno(String cartno) {
         this.cartno = cartno;
     }
 

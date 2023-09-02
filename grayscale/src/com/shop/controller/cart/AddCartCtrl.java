@@ -23,6 +23,7 @@ public class AddCartCtrl extends HttpServlet {
             String cid = (String) session.getAttribute("sid");
 
             Cart cart = new Cart();
+            cart.setCartno(cid.concat(Integer.toString(pno)));
             cart.setPno(pno);
             cart.setCid(cid);
             cart.setAmount(amount);

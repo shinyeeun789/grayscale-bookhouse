@@ -3,6 +3,7 @@ package com.shop.model;
 import com.shop.dto.Custom;
 import com.shop.util.AES256;
 import com.shop.vo.CustomVO;
+import com.shop.vo.MyOrderVO;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -188,5 +189,39 @@ public class CustomDAO {
             con.close(pstmt, conn);
         }
         return cnt;
+    }
+
+    public List<MyOrderVO> getMyOrderList(String cid) {
+        List<MyOrderVO> myOrderList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        try {
+            conn = con.connect();
+            pstmt = conn.prepareStatement(DBConnect.SELECT_MY_ORDER_LIST);
+            pstmt.setString(1, cid);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                MyOrderVO order = new MyOrderVO();
+                order.setSno(rs.getInt("sno"));
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                Date d = sdf.parse(rs.getString("sdate"));
+                order.setSdate(sdf.format(d));
+
+                order.setCnum(rs.getString("cnum"));
+                order.setPname(rs.getString("pname"));
+                order.setAmount(rs.getInt("amount"));
+                order.setPayprice(rs.getInt("payprice"));
+                String[] state_list = order.getState_list();
+                order.setPstate(state_list[rs.getInt("pstate")]);
+                myOrderList.add(order);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return myOrderList;
     }
 }
