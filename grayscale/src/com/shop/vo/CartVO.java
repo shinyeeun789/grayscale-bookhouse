@@ -1,13 +1,13 @@
 package com.shop.vo;
 
 public class CartVO {
-    private int cartno;     //카트번호
-    private String cid;     //고객아이디
-    private String name;     //고객명
-    private int pno;        //제품번호
-    private String pname;   //제품번호
-    private int amount;     //제품수량
-    private int price;      // 제품가격
+    private int cartno;         //카트번호
+    private String cid;         //고객아이디
+    private String name;        //고객명
+    private int pno;            //제품번호
+    private String pname;       //제품번호
+    private int amount;         //제품수량
+    private int price;          // 제품가격
 
     public int getCartno() {
         return cartno;

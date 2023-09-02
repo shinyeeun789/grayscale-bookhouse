@@ -44,6 +44,14 @@ public interface DBConnect {
     final static String SELECT_RELATED = "select * from product where cate in (select cate from product where pno=?) order by random() limit 4";
     final static String PRODUCT_INSERT = "insert into product values(default, ?, '', ?, ?, ?, ?, ?, ?, ?, default)";
     final static String PRODUCT_INSERT_UPDATE = "update product set prono = concat(cate, pno) where pno in (select pno from product order by resdate desc limit 1)";
+    final static String SELECT_PRODUCT_PRICE = "select price from product where pno=?";
+
+    // Payment 테이블 SQL문
+    final static String SELECT_SNO = "select sno from payment order by sno desc limit 1";
+    final static String INSERT_PAYMENT = "insert into payment(cid, pno, amount, pmethod, pcom, cnum, payprice) values(?,?,?,?,?,?,?)";
+
+    // Delivery 테이블 SQL문
+    final static String INSERT_DELIVERY = "insert into delivery(sno, cid, daddr, custel) values(?,?,?,?)";
 
     //입고 처리 패턴
     final static String RECEIVE_INSERT = "insert into receive(pno, amount, rprice) values (?, ?, ?) on conflict(pno) " +
@@ -58,6 +66,11 @@ public interface DBConnect {
 
     // 재고 조회
     final static String INVENTORY_SELECT_ONE = "select * from inventory where pno=?";
+
+    // 출고 처리 패턴
+    final static String SERVE_PAYMENT = "insert into payment values (default, ?, ?, ?, ?, ?, ?, ?)";
+    final static String INSERT_SERVE = "insert into serve values(default, ?, ?, ?, default)";
+
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);

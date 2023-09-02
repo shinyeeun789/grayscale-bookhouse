@@ -1,3 +1,5 @@
+select * from cart;
+
 drop table custom;
 
 -- 회원 테이블 생성
@@ -99,10 +101,13 @@ do update
 set amount = (select amount from receive where pno=1)+10, rprice = ((select rprice from receive where pno=1) + 10000) / 2
 
 -- 출고 테이블 생성
-create table serve(sno serial primary key,
-pno integer not null, amount integer default 1,
-sprice integer default 1000,
-resdate timestamp default current_timestamp);
+create table serve(
+	sno serial primary key,
+	pno integer not null, 
+    amount integer default 1,
+	sprice integer default 1000,
+	resdate timestamp default current_timestamp
+);
 
 insert into serve values(default, 1, 2, 15000, default);
 
@@ -123,13 +128,38 @@ insert into category values('E', '해외서적');
 create table cart(
 	cartno serial primary key,
 	cid varchar(20) not null,
-	pno integer not null,
+	pno integer not null unique,
 	amount integer not null
 );
-
-select cartno, cid, c.pno, pname, amount, price from cart c, product p where c.pno=p.pno and cid='kimname1';
 
 -- 재고 처리 뷰
 create view inventory as (select r.pno, r.amount-(case when s.amount is not null then s.amount else 0 end) as amount, rprice from receive r left outer join serve s on(r.pno=s.pno));
 select * from inventory;
 drop view inventory;
+
+-- 결제 테이블 생성
+create table payment(
+	sno serial primary key,
+	cid varchar(20) not null,
+	pno integer not null,
+	amount integer default 1,
+	pmethod varchar(100),
+	pcom varchar(100),
+	cnum varchar(100),
+	payprice integer default 1000
+);
+
+-- 배송 테이블 생성
+create table delivery(
+	dno serial primary key,
+	sno integer not null, 
+	cid varchar(20) not null,
+	daddr varchar(300) not null, 
+	custel varchar(13) not null,
+	pcom varchar(100),
+	ptel varchar(13),
+	pstate integer default 0,	
+	sdate timestamp default current_timestamp,
+	rdate varchar(13),
+	bcode varchar(30)
+);

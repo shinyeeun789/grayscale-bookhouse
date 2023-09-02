@@ -2,9 +2,7 @@ package com.shop.util;
 
 import com.shop.model.DBConnect;
 import com.shop.model.PostgreCon;
-import org.junit.runner.Request;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Page {
+
     private int startRow;
     private int endRow;
     private boolean prev = true;

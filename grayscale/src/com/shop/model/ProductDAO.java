@@ -285,4 +285,21 @@ public class ProductDAO {
         return cnt;
     }
 
+    public int getPrice(int pno) {
+        int result = 0;
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_PRODUCT_PRICE);
+            pstmt.setInt(1, pno);
+            rs = pstmt.executeQuery();
+            if(rs.next()) {
+                result = rs.getInt("price");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
 }
