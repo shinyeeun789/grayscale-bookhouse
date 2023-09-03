@@ -4,6 +4,7 @@ import com.shop.dto.Delivery;
 import com.shop.dto.Payment;
 import com.shop.dto.Serve;
 import com.shop.vo.CartVO;
+import com.shop.vo.ProfitVO;
 import com.shop.vo.ReviewVO;
 import org.checkerframework.checker.units.qual.A;
 
@@ -12,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PaymentDAO {
-
     static Connection conn = null;
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
@@ -245,6 +245,27 @@ public class PaymentDAO {
             throw new RuntimeException(e);
         }
         return reviewList;
+    }
+
+    public List<ProfitVO> getSaleList() {
+        List<ProfitVO> voList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.GET_SALES_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()){
+                ProfitVO vo = new ProfitVO();
+                vo.setDate(rs.getString("sdate"));
+                vo.setSales(rs.getInt("sales"));
+                voList.add(vo);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return voList;
     }
 
 }

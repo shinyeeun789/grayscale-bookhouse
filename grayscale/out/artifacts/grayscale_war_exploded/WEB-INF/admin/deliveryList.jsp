@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumb__text">
-                            <h4> MyPage </h4>
+                            <h4> 배송정보 관리 </h4>
                             <div class="breadcrumb__links">
                                 <a href="${path}/">Home</a>
                                 <span> Admin Notice </span>
@@ -56,11 +56,12 @@
             <div class="row pt-5">
                 <div class="col col-lg-2">
                     <div class="border p-4">
-                        <a href="${path}/Mypage.do" class="d-block mt-2 mb-2"> 개인정보 확인 </a>
-                        <a href="${path}/MyInfoUpdate.do" class="d-block mb-2"> 개인정보 변경 </a>
-                        <a href="${path}/MyOrderList.do" class="d-block mb-2"> 주문/배송 조회 </a>
+                        <a href="${path}/AdminDashboard.do" class="d-block mt-2 mb-2"> Dashboard </a>
+                        <a href="${path}/AdminProList.do" class="d-block mb-2"> 상품 목록 </a>
+                        <a href="${path}/AddProduct.do" class="d-block mb-2"> 상품 등록 </a>
+                        <a href="${path}/AddReceive.do" class="d-block mb-2"> 상품 입고 </a>
                         <a href="${path}/DeliveryList.do" class="d-block mb-2" style="color:#0275d8; font-weight:bold"> 배송 정보 관리 </a>
-                        <a href="" class="d-block mb-2"> 리뷰 관리 </a>
+                        <a href="${path}/AdminReview.do" class="d-block mb-2"> 리뷰 관리 </a>
                     </div>
                 </div>
                 <div class="col col-lg-10 mb-5">

@@ -13,7 +13,7 @@
                                 <a href="${path1}/Mypage.do"> MyPage </a>
                             </c:if>
                             <c:if test="${sid eq 'admin1234' }">
-                                <a href="${path1}/AdminProList.do"> Admin Notice </a>
+                                <a href="${path1}/AdminDashboard.do"> Admin Notice </a>
                             </c:if>
                         </c:if>
                         <c:if test="${empty sid}">

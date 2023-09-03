@@ -47,7 +47,8 @@
             <div class="row pt-5">
                 <div class="col col-lg-2">
                     <div class="border p-4">
-                        <a href="${path}/AdminProList.do" class="d-block mt-2 mb-2" style="color:#0275d8; font-weight:bold"> 상품 목록 </a>
+                        <a href="${path}/AdminDashboard.do" class="d-block mt-2 mb-2"> Dashboard </a>
+                        <a href="${path}/AdminProList.do" class="d-block mb-2" style="color:#0275d8; font-weight:bold"> 상품 목록 </a>
                         <a href="${path}/AddProduct.do" class="d-block mb-2"> 상품 등록 </a>
                         <a href="${path}/AddReceive.do" class="d-block mb-2"> 상품 입고 </a>
                         <a href="${path}/DeliveryList.do" class="d-block mb-2"> 배송 정보 관리 </a>

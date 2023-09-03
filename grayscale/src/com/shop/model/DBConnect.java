@@ -102,6 +102,13 @@ public interface DBConnect {
     final static String RETURN_DELIVERY = "delete from delivery where sno=?";
     final static String RETURN_DELIVERIES = "delete from delivery where sno in (select sno from payment where cnum=?)";
 
+    // 매출액, 매출이익 SQL문
+    final static String GET_SALES_LIST = "SELECT sdate, sum(payprice) as sales " +
+            "FROM (SELECT to_char(sdate, 'YYYY-MM') AS sdate, payprice FROM payment p, delivery d where p.sno=d.sno " +
+            "GROUP BY to_char(sdate, 'YYYY-MM'), cnum, payprice ORDER BY sdate) sub " +
+            "GROUP BY sdate";
+    final static String SELECT_PROFIT_LIST = "select pname, tot from profit a, product b where a.pno=b.pno order by tot desc";
+
 
     public Connection connect();
     public void close(PreparedStatement pstmt, Connection conn);

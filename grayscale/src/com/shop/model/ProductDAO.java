@@ -5,6 +5,7 @@ import com.shop.dto.Notice;
 import com.shop.dto.Product;
 import com.shop.dto.Receive;
 import com.shop.vo.ProductListVO;
+import com.shop.vo.ProfitVO;
 import org.checkerframework.checker.units.qual.A;
 
 import java.sql.Connection;
@@ -18,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 
 public class ProductDAO {
-
     static Connection conn = null;
     static PreparedStatement pstmt = null;
     static ResultSet rs = null;
@@ -349,6 +349,27 @@ public class ProductDAO {
             throw new RuntimeException(e);
         }
         return result;
+    }
+
+    public List<ProfitVO> getProductProfit() {
+        List<ProfitVO> profitList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_PROFIT_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                ProfitVO profit = new ProfitVO();
+                profit.setPname(rs.getString("pname"));
+                profit.setSales(rs.getInt("tot"));
+                profitList.add(profit);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return profitList;
     }
 
 }
