@@ -57,7 +57,6 @@
             <div class="col-lg-3 col-md-3">
                 <div class="header__nav__option">
                     <c:if test="${!empty sid and sid ne 'admin1234'}">
-                        <a href="#"><img src="${path1}/images/heart.png" alt=""></a>
                         <a href="${path}/CartList.do"><img src="${path1}/images/cart.png" alt="장바구니 이미지"></a>
                     </c:if>
                 </div>

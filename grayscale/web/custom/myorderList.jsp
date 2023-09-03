@@ -50,7 +50,7 @@
                         <a href="${path}/Mypage.do" class="d-block mt-2 mb-2"> 개인정보 확인 </a>
                         <a href="${path}/MyInfoUpdate.do" class="d-block mb-2"> 개인정보 변경 </a>
                         <a href="${path}/MyOrderList.do" class="d-block mb-2" style="color:#0275d8; font-weight:bold"> 주문/배송 조회 </a>
-                        <a href="" class="d-block mb-2"> 리뷰 관리 </a>
+                        <a href="${path}/ReviewList.do" class="d-block mb-2"> 리뷰 관리 </a>
                     </div>
                 </div>
                 <div class="col col-lg-10">
@@ -65,12 +65,14 @@
                                 <div class="col col-lg-2 d-flex align-items-center">
                                         ${order.pstate}
                                 </div>
-                                <c:if test="${order.pstate eq '입고'}">
-                                    <button type="button" class="btn btn-outline-secondary col col-lg-2" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 취소 </button>
-                                </c:if>
-                                <c:if test="${order.pstate eq '배송 도착'}">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 환불 </button>
-                                </c:if>
+                                <div class="col col-lg-2 d-flex align-items-center">
+                                    <c:if test="${order.pstate eq '입고'}">
+                                        <button type="button" class="btn btn-outline-secondary col col-lg-2" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 취소 </button>
+                                    </c:if>
+                                    <c:if test="${order.pstate eq '배송 도착'}">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 환불 </button>
+                                    </c:if>
+                                </div>
                             </div>
                             <hr class="mb-5">
                         </c:if>
@@ -96,12 +98,14 @@
                                 <div class="col col-lg-2 d-flex align-items-center">
                                         ${order.pstate}
                                 </div>
-                                <c:if test="${order.pstate eq '입고'}">
-                                    <button type="button" class="btn btn-outline-secondary col col-lg-2" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 취소 </button>
-                                </c:if>
-                                <c:if test="${order.pstate eq '배송 도착'}">
-                                    <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 환불 </button>
-                                </c:if>
+                                <div class="col col-lg-2 d-flex align-items-center">
+                                    <c:if test="${order.pstate eq '입고'}">
+                                        <button type="button" class="btn btn-outline-secondary col col-lg-2" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 취소 </button>
+                                    </c:if>
+                                    <c:if test="${order.pstate eq '배송 도착'}">
+                                        <button type="button" class="btn btn-outline-secondary" onclick="javascript:location.href='${path}/ReturnPaymentOne.do?sno=${order.sno}'"> 부분 환불 </button>
+                                    </c:if>
+                                </div>
                             </div>
                             <hr class="mb-5">
                         </c:if>

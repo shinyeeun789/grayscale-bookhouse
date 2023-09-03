@@ -51,15 +51,24 @@ public interface DBConnect {
     final static String INSERT_PAYMENT = "insert into payment(cid, pno, amount, pmethod, pcom, cnum, payprice) values(?,?,?,?,?,?,?)";
     final static String PAYMENT_SELECT_ONE = "select * from payment where pno=?";
     final static String PAYMENT_SELECT_LIST = "select * from payment where cid=? and cnum=?";
+    final static String PAYINFO_SELECT_ONE = "select sno, pro.pno, pname, amount, payprice from payment pay, product pro where pay.pno=pro.pno and sno=?";
+    final static String SELECT_REVIEW_LIST = "select a.sno, pname, amount, rdate from payment a, delivery b, product c where a.sno=b.sno and a.pno=c.pno and a.cid=? and pstate=4 and a.sno not in (select sno from review)";
+    final static String SELECT_ADMIN_REVIEW_LIST = "select rno, pname, cid, star, content from review a, product b where a.pno=b.pno";
 
     // Delivery 테이블 SQL문
     final static String INSERT_DELIVERY = "insert into delivery(cid, daddr, custel) values(?,?,?)";
     final static String UPDATE_DELIVERY_SNO = "update delivery set sno=dno where sno=0";
     final static String DELIVERY_PRODUCT_SELECT_ALL = "SELECT a.dno AS dno, b.cid, pname, payprice, pstate, sdate FROM delivery a, payment b, product c WHERE a.sno=b.sno AND b.pno=c.pno AND pstate=0 order by sdate, dno";
-    final static String DELCODE_GROUP_LIST = "select a.dno as dno, cnum, pname, sdate, rdate, bcode, pstate from delivery a, payment b, product c where a.sno=b.sno and b.pno=c.pno and bcode != '' and pstate < 6 group by cnum, dno, pname, sdate, rdate, bcode";
+    final static String DELCODE_GROUP_LIST = "select a.dno as dno, cnum, pname, sdate, rdate, bcode, pstate from delivery a, payment b, product c where a.sno=b.sno and b.pno=c.pno and bcode != '' and pstate < 4 group by cnum, dno, pname, sdate, rdate, bcode";
     final static String DELIVERY_PRODUCT_SELECT_ONE = "SELECT a.dno, pname, b.cid, sdate, rdate, a.daddr, custel, a.pcom, ptel, pstate, cnum, bcode FROM delivery a, payment b, product c WHERE a.sno=b.sno AND b.pno=c.pno AND a.dno=?";
     final static String DELIVERY_UPDATE = "update delivery set rdate=?, pcom=?, ptel=?, pstate=?, bcode=? where dno=?";
     final static String DELIVERY_UPDATE_WITH_DELCODE = "update delivery set rdate=?, pcom=?, ptel=?, pstate=?, bcode=? where bcode=?";
+
+    // 리뷰 테이블 SQL문
+    final static String REVIEW_CID_SELECT = "select rno, pname, star, content from review r join product p on(r.pno=p.pno) where cid=?";
+    final static String INSERT_REVIEW = "insert into review(sno, pno, star, content, cid) values(?,?,?,?,?)";
+    final static String REVIEW_DELETE = "delete from review where rno=?";
+    final static String SELECT_REVIEW_PNO_LIST = "select * from review where pno=?";
 
     //입고 처리 패턴
     final static String RECEIVE_INSERT = "insert into receive(pno, amount, rprice) values (?, ?, ?) on conflict(pno) " +

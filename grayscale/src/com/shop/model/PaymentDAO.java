@@ -4,6 +4,8 @@ import com.shop.dto.Delivery;
 import com.shop.dto.Payment;
 import com.shop.dto.Serve;
 import com.shop.vo.CartVO;
+import com.shop.vo.ReviewVO;
+import org.checkerframework.checker.units.qual.A;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -220,6 +222,29 @@ public class PaymentDAO {
             con.close(pstmt, conn);
         }
         return cnt;
+    }
+
+    public List<ReviewVO> getReviewPayList(String cid) {
+        List<ReviewVO> reviewList = new ArrayList<>();
+
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_REVIEW_LIST);
+            pstmt.setString(1, cid);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                ReviewVO review = new ReviewVO();
+                review.setSno(rs.getInt("sno"));
+                review.setPname(rs.getString("pname"));
+                review.setAmount(rs.getInt("amount"));
+                review.setRdate(rs.getString("rdate"));
+                reviewList.add(review);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return reviewList;
     }
 
 }

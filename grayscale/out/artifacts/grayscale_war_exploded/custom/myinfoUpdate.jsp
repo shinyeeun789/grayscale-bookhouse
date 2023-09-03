@@ -58,7 +58,7 @@
                     <a href="${path}/Mypage.do" class="d-block mt-2 mb-2"> 개인정보 확인 </a>
                     <a href="${path}/MyInfoUpdate.do" class="d-block mb-2" style="color:#0275d8; font-weight:bold"> 개인정보 변경 </a>
                     <a href="${path}/MyOrderList.do" class="d-block mb-2"> 주문/배송 조회 </a>
-                    <a href="" class="d-block mb-2"> 리뷰 관리 </a>
+                    <a href="${path}/ReviewList.do" class="d-block mb-2"> 리뷰 관리 </a>
                 </div>
             </div>
             <div class="col col-lg-10">

@@ -124,11 +124,12 @@ insert into category values('C', '문제집');
 insert into category values('D', '기타');
 insert into category values('E', '해외서적');
 
+drop table cart;
 -- 카트 테이블 생성
 create table cart(
-	cartno serial primary key,
+	cartno varchar(30) primary key,
 	cid varchar(20) not null,
-	pno integer not null unique,
+	pno integer not null,
 	amount integer not null
 );
 
@@ -162,4 +163,15 @@ create table delivery(
 	sdate timestamp default current_timestamp,
 	rdate varchar(13),
 	bcode varchar(30)
+);
+
+-- 리뷰 테이블 생성
+create table review(
+	rno serial primary key,
+	sno integer not null,
+	cid varchar(20) not null,
+	pno integer not null,
+	content varchar(500) not null,
+	star integer default 5,
+	resdate timestamp default current_timestamp
 );
