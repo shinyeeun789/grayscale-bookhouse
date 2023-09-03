@@ -17,7 +17,7 @@ public class NewProductCtrl extends HttpServlet {
 
         // 데이터 가져오기
         ProductDAO dao = new ProductDAO();
-        List<Product> proList = dao.getNewProductList();
+        List<Product> proList = dao.getNewProductList(21);
 
         request.setAttribute("proList", proList);
         RequestDispatcher view = request.getRequestDispatcher("/product/newProductList.jsp");

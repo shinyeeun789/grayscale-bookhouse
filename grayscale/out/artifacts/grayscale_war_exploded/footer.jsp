@@ -10,7 +10,6 @@
                     <ul>
                         <li><a href="#"> 인기도서 </a></li>
                         <li><a href="#"> 신규도서 </a></li>
-                        <li><a href="#"> 추천도서 </a></li>
                     </ul>
                 </div>
             </div>
@@ -18,10 +17,10 @@
                 <div class="footer__widget">
                     <h6>Category</h6>
                     <ul>
-                        <li><a href="#"> 교과서 </a></li>
-                        <li><a href="#"> 참고서 </a></li>
-                        <li><a href="#"> 문제집 </a></li>
-                        <li><a href="#"> 해외서적 </a></li>
+                        <li><a href="${path}/ProductList.do?cate=A&page=1"> 교과서 </a></li>
+                        <li><a href="${path}/ProductList.do?cate=B&page=1"> 참고서 </a></li>
+                        <li><a href="${path}/ProductList.do?cate=C&page=1"> 문제집 </a></li>
+                        <li><a href="${path}/ProductList.do?cate=D&page=1"> 기타 </a></li>
                     </ul>
                 </div>
             </div>
@@ -29,8 +28,8 @@
                 <div class="footer__widget">
                     <h6>Community</h6>
                     <ul>
-                        <li><a href="#"> 공지사항 </a></li>
-                        <li><a href="#">QnA</a></li>
+                        <li><a href="${path1}/NoticeList.do?page=1"> 공지사항 </a></li>
+                        <li><a href="${path1}/QnaList.do?page=1">QnA</a></li>
                     </ul>
                 </div>
             </div>

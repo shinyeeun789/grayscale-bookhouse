@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 public interface DBConnect {
     // 공지사항 테이블 SQL문
     final static String SELECT_NOTICE_COUNT = "select count(*) as cnt from notice";
-    final static String NOTICE_SELECT_ALL = "select * from notice order by no desc";
+    final static String SELECT_MAIN_NOTICES = "select * from notice order by no desc limit 6";
     final static String NOTICE_SELECT_LIMIT = "select * from notice order by no desc limit 10 offset ?";
     final static String NOTICE_SELECT_ONE = "select * from notice where no=?";
     final static String NOTICE_INSERT = "insert into notice values (default,?,?,default,default)";
@@ -38,8 +38,8 @@ public interface DBConnect {
     final static String PRODUCT_SELECT_ALL = "select * from product order by pno";
     final static String PRODUCT_LIST_LIMIT = "SELECT * FROM product order BY pno DESC LIMIT 12 OFFSET ?";
     final static String PRODUCT_LIST_CATE_LIMIT = "SELECT * FROM product where cate=? order BY pno DESC LIMIT 12 OFFSET ?";
-    final static String SELECT_BEST_PRODUCT_LIST = "select * from product where pno in (select pno from payment group by pno order by sum(amount) desc limit 21)";
-    final static String SELECT_NEW_PRODUCT_LIST = "select * from product order by pno desc limit 21";
+    final static String SELECT_BEST_PRODUCT_LIST = "select * from product where pno in (select pno from payment group by pno order by sum(amount) desc limit ?)";
+    final static String SELECT_NEW_PRODUCT_LIST = "select * from product order by pno desc limit ?";
     final static String SELECT_PRODUCTVO = "select pname, cname, i.rprice, i.amount as amount, price " +
             "from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno)";
     final static String SELECT_PNO_PRODUCT = "select * from product where pno=?";

@@ -73,6 +73,7 @@
                                 <div class="col-lg-4 col-md-6 col-sm-6">
                                     <div class="product__item" onclick="javascript:location.href='${path}/Product.do?pno=${pro.pno}'" style="cursor:pointer;">
                                         <div class="product__item__pic" style="background-image: url('${path}/storage/${pro.imgSrc1}'); background-size: cover" alt="상품 이미지">
+                                            <span class="label">New</span>
                                         </div>
                                         <div class="product__item__text">
                                             <h6>${pro.pname}</h6>

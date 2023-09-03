@@ -140,4 +140,35 @@ public class NoticeDAO {
         }
         return cnt;
     }
+
+    public List<Notice> getMainNotices() {
+        List<Notice> noticeList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_MAIN_NOTICES);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Notice noti = new Notice();
+                noti.setNo(rs.getInt("no"));
+                noti.setTitle(rs.getString("title"));
+                noti.setContent(rs.getString("content"));
+
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date d = sdf.parse(rs.getString("resdate"));
+                noti.setResdate(sdf.format(d));
+                noti.setVisited(rs.getInt("visited"));
+
+                noticeList.add(noti);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        } finally {
+            con.close(rs, pstmt, conn);
+        }
+        return noticeList;
+    }
 }

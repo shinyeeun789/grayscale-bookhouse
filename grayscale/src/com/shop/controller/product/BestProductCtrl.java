@@ -21,7 +21,7 @@ public class BestProductCtrl extends HttpServlet {
 
         // 데이터 가져오기
         ProductDAO dao = new ProductDAO();
-        List<Product> proList = dao.getBestProductList();
+        List<Product> proList = dao.getBestProductList(21);
 
         request.setAttribute("proList", proList);
         RequestDispatcher view = request.getRequestDispatcher("/product/bestProductList.jsp");

@@ -162,12 +162,13 @@ public class ProductDAO {
         return proList;
     }
 
-    public List<Product> getBestProductList() {
+    public List<Product> getBestProductList(int limit) {
         List<Product> proList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.SELECT_BEST_PRODUCT_LIST);
+            pstmt.setInt(1, limit);
             rs = pstmt.executeQuery();
             while(rs.next()) {
                 Product product = new Product();
@@ -185,12 +186,13 @@ public class ProductDAO {
         return proList;
     }
 
-    public List<Product> getNewProductList() {
+    public List<Product> getNewProductList(int limit) {
         List<Product> proList = new ArrayList<>();
         DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.SELECT_NEW_PRODUCT_LIST);
+            pstmt.setInt(1, limit);
             rs = pstmt.executeQuery();
             while(rs.next()) {
                 Product product = new Product();
