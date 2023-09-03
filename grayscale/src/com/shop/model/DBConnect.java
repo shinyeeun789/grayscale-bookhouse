@@ -38,6 +38,8 @@ public interface DBConnect {
     final static String PRODUCT_SELECT_ALL = "select * from product order by pno";
     final static String PRODUCT_LIST_LIMIT = "SELECT * FROM product order BY pno DESC LIMIT 12 OFFSET ?";
     final static String PRODUCT_LIST_CATE_LIMIT = "SELECT * FROM product where cate=? order BY pno DESC LIMIT 12 OFFSET ?";
+    final static String SELECT_BEST_PRODUCT_LIST = "select * from product where pno in (select pno from payment group by pno order by sum(amount) desc limit 21)";
+    final static String SELECT_NEW_PRODUCT_LIST = "select * from product order by pno desc limit 21";
     final static String SELECT_PRODUCTVO = "select pname, cname, i.rprice, i.amount as amount, price " +
             "from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno)";
     final static String SELECT_PNO_PRODUCT = "select * from product where pno=?";

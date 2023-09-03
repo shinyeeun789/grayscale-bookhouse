@@ -35,8 +35,8 @@
             <div class="col-lg-6 col-md-6">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li><a href=""> 베스트 </a></li>
-                        <li><a href=""> 신상품 </a></li>
+                        <li><a href="${path}/BestProduct.do"> 베스트 </a></li>
+                        <li><a href="${path}/NewProduct.do"> 신상품 </a></li>
                         <li><a href="${path1}/ProductList.do?cate=None&page=1"> 카테고리 </a>
                             <ul class="dropdown">
                                 <li><a href="${path}/ProductList.do?cate=A&page=1"> 교과서 </a></li>

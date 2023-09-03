@@ -20,7 +20,6 @@ public class ProListCtrl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("msg", "상품 리스트를 출력합니다.");
 
-        String keyword = request.getParameter("keyword");
         String cate = request.getParameter("cate");
         int curPage = Integer.parseInt(request.getParameter("page"));
 

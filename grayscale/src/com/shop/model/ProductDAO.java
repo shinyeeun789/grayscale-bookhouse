@@ -5,6 +5,7 @@ import com.shop.dto.Notice;
 import com.shop.dto.Product;
 import com.shop.dto.Receive;
 import com.shop.vo.ProductListVO;
+import org.checkerframework.checker.units.qual.A;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -157,6 +158,52 @@ public class ProductDAO {
             throw new RuntimeException(e);
         } finally {
             con.close(rs, pstmt, conn);
+        }
+        return proList;
+    }
+
+    public List<Product> getBestProductList() {
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_BEST_PRODUCT_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Product product = new Product();
+                product.setPno(rs.getInt("pno"));
+                product.setCate(rs.getString("cate"));
+                product.setProno(rs.getString("prono"));
+                product.setPname(rs.getString("pname"));
+                product.setPrice(rs.getInt("price"));
+                product.setImgSrc1(rs.getString("imgsrc1"));
+                proList.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return proList;
+    }
+
+    public List<Product> getNewProductList() {
+        List<Product> proList = new ArrayList<>();
+        DBConnect con = new PostgreCon();
+        conn = con.connect();
+        try {
+            pstmt = conn.prepareStatement(DBConnect.SELECT_NEW_PRODUCT_LIST);
+            rs = pstmt.executeQuery();
+            while(rs.next()) {
+                Product product = new Product();
+                product.setPno(rs.getInt("pno"));
+                product.setCate(rs.getString("cate"));
+                product.setProno(rs.getString("prono"));
+                product.setPname(rs.getString("pname"));
+                product.setPrice(rs.getInt("price"));
+                product.setImgSrc1(rs.getString("imgsrc1"));
+                proList.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return proList;
     }

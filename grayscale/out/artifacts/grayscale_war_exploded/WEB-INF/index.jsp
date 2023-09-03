@@ -23,31 +23,29 @@
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="hero__slider owl-carousel">
-        <div class="hero__items set-bg" data-setbg="${path}/images/hero-1.jpg">
+        <div class="hero__items set-bg" data-setbg="${path}/images/banner01-1.png">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                commitment to exceptional quality.</p>
-                            <a href="#" class="primary-btn">Shop now</a>
+                            <h6> GRAYSCALE </h6>
+                            <h2> ONLINE BOOKHOUSE </h2>
+                            <p> 지금 GRAYSCALE에서 책의 매력을 만나보세요! 다양한 장르와 베스트셀러들이 여러분을 기다리고 있습니다. 독서의 즐거움을 함께 나눠보세요 </p>
+                            <a href="${path}/ProductList.do?cate=None&page=1" class="primary-btn">Shop now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="hero__items set-bg" data-setbg="${path}/images/hero-2.jpg">
+        <div class="hero__items set-bg" data-setbg="${path}/images/banner02-1.png">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-5 col-lg-7 col-md-8">
                         <div class="hero__text">
-                            <h6>Summer Collection</h6>
-                            <h2>Fall - Winter Collections 2030</h2>
-                            <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
-                                commitment to exceptional quality.</p>
-                            <a href="#" class="primary-btn">Shop now</a>
+                            <h6> GRAYSCALE </h6>
+                            <h2> BEST </h2>
+                            <p> 온라인 서점의 베스트셀러로 핫한 책들을 한눈에 확인하세요. 업계 최고의 작품들을 저렴한 가격에 만나보세요. 지금 바로 책을 선택하고 읽으며 새로운 세계로 떠나보세요! </p>
+                            <a href="${path}/BestProduct.do" class="primary-btn">Shop now</a>
                         </div>
                     </div>
                 </div>

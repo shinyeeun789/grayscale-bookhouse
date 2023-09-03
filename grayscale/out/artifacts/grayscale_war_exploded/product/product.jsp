@@ -180,14 +180,7 @@
                             <div class="product__item__pic" style="background-image: url('${path}/storage/${relPro.imgSrc1}')"></div>
                             <div class="product__item__text">
                                 <h6>${relPro.pname}</h6>
-                                <a href="#" class="add-cart"> 장바구니 담기 </a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
+                                <a href="${path}/Product.do?pno=${relPro.pno}" class="add-cart"> 장바구니 담기 </a>
                                 <h5>${relPro.price}</h5>
                             </div>
                         </div>
