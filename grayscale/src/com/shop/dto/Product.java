@@ -1,5 +1,5 @@
 package com.shop.dto;
-//상품
+
 public class Product {
     private int pno;            //상품번호(auto)
     private String cate;        //카테고리

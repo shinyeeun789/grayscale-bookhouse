@@ -39,6 +39,7 @@
 <link rel="stylesheet" href="${path1}/css/owl.carousel.min.css" type="text/css">
 <link rel="stylesheet" href="${path1}/css/slicknav.min.css" type="text/css">
 <link rel="stylesheet" href="${path1}/css/style.css" type="text/css">
+<link rel="stylesheet" href="${path1}/css/common.css">
 
 <style>
     .title { text-align: center; margin: 60px 0px 40px 0px; }

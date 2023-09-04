@@ -21,7 +21,7 @@ public class DaoTest1 {
             System.out.println("PostgreSQL 연결 성공");
         }
 
-        String sql = "select * from custom order by id desc";
+        String sql = "select * from notice order by no desc limit 10";
         try {
             pstmt = conn.prepareStatement(sql);
             rs = pstmt.executeQuery();

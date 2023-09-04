@@ -9,35 +9,27 @@ public class Cart {
     public String getCartno() {
         return cartno;
     }
-
     public void setCartno(String cartno) {
         this.cartno = cartno;
     }
-
     public String getCid() {
         return cid;
     }
-
     public void setCid(String cid) {
         this.cid = cid;
     }
-
     public int getPno() {
         return pno;
     }
-
     public void setPno(int pno) {
         this.pno = pno;
     }
-
     public int getAmount() {
         return amount;
     }
-
     public void setAmount(int amount) {
         this.amount = amount;
     }
-
     @Override
     public String toString() {
         return "Cart{" +

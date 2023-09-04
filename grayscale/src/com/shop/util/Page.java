@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Page {
-
     private int startRow;
     private int endRow;
     private boolean prev = true;

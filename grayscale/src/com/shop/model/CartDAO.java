@@ -41,13 +41,13 @@ public class CartDAO {
         return cnt;
     }
 
-    public int delCart(int cartno) {
+    public int delCart(String cartno) {
         int cnt = 0;
         DBConnect con = new PostgreCon();
         conn = con.connect();
         try {
             pstmt = conn.prepareStatement(DBConnect.CART_DELETE);
-            pstmt.setInt(1, cartno);
+            pstmt.setString(1, cartno);
             cnt = pstmt.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

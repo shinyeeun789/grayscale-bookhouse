@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 public class DelCartCtrl extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int cartno = Integer.parseInt(request.getParameter("cartno"));
+        String cartno = request.getParameter("cartno");
 
         CartDAO dao = new CartDAO();
         int cnt = dao.delCart(cartno);

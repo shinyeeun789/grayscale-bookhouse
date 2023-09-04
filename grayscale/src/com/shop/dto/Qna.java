@@ -1,7 +1,6 @@
 package com.shop.dto;
 
 public class Qna {
-
     private int qno;
     private String title;
     private String content;

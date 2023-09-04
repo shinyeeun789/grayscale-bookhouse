@@ -1,5 +1,5 @@
 package com.shop.dto;
-//입고
+
 public class Receive {
     private int rno;         //입고번호(auto)
     private int pno;        //입고 제품번호

@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="col col-lg-10">
-                        <h3> MY REVIEW </h3>
+                        <h3> REVIEW LIST </h3>
                         <div class="box_wrap mb-5" style="margin: 0 auto">
                             <table class="table table-striped table-hover" id="tb1">
                                 <thead>

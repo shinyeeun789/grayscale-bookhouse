@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="form-outline mb-4" id="login_info" style="color:red; transition: 0.3s"></div>
                                     <button class="btn btn-primary btn-lg btn-block w-100" type="submit">Login</button>
-                                    <button class="btn btn-success btn-lg btn-block w-100" type="submit"> Naver Login </button>
+                                    <button class="btn btn-success btn-lg btn-block w-100" type="button"> Naver Login </button>
                                 </form>
                             </div>
                         </div>
