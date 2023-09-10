@@ -227,3 +227,171 @@
     </td>
   </tr>
 </table>
+
+### 3. 고객지원 기능
+#### (1) 공지사항
+- 공지사항의 글 작성, 글 수정, 글 상세 보기, 글 삭제 기능 구현
+- 관리자만 공지사항 글 작성, 글 수정, 글 삭제 기능에 접근 가능
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/ad93f268-af70-4dd4-ba9b-e146960cd079">
+      <sub><b> PIC1 : 공지사항 목록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/641c6d4a-5faa-4809-9a45-b102fde25cf6">
+      <sub><b> PIC2 : 공지사항 글 상세 보기 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/5d117475-e811-44ee-8fb0-f120ac6873ed">
+      <sub><b> PIC3 : 공지사항 글 수정 </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (2) QnA
+- QnA의 글 작성, 글 상세 보기, 글 삭제 기능 구현
+- 질문글은 일반 사용자, 관리자 모두 등록 가능
+- 답변글은 관리자만 등록 가능
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/60aed680-f432-419a-847e-39ca6ae52dd5">
+      <sub><b> PIC1 : QnA 목록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/0d7b51c9-d8f1-48b3-9c41-5f45f46ccf9c">
+      <sub><b> PIC2 : 질문 글 상세 보기 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/f987e8ff-02ca-4c32-a963-997a9dec4500">
+      <sub><b> PIC3 : 답변 글 상세 보기 </sub></b>
+    </td>
+  </tr>
+</table>
+
+### 4. 상품 판매 기능
+#### (1) 상품 목록
+- 카테고리 별 상품의 목록 출력
+- 인기 상품 목록 출력
+- 신상품 목록 출력
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/fc8a15c2-7b0e-4ec7-a1d3-21c65141875b">
+      <sub><b> PIC1 : 카테고리 별 상품 목록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/f4c47277-ecaa-40ea-b47d-d79e688b6e74">
+      <sub><b> PIC2 : 인기 상품 목록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/1d78e977-b926-458d-9c05-9283d5f75dcd">
+      <sub><b> PIC3 : 신상품 목록 </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (2) 상품 상세 페이지
+- 상품 이미지, 상품명, 상품 설명, 상품 가격, 상품의 목차와 상품의 리뷰를 출력하는 화면 구현
+- 상품은 반드시 장바구니에 담기 후에만 결제 가능
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/6e782966-b541-4ca2-9659-56207930cc3d">
+      <sub><b> PIC1 : 상품 상세 보기(1) </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/9b0bcaa3-d01d-44a3-a4be-ca4493dfdbe5">
+      <sub><b> PIC2 : 상품 상세 보기(2) </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/4aeeef40-c5d1-4c81-ac2c-ad8989f88b48">
+      <sub><b> PIC3 : 상품 상세 보기(3) </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/233e358f-3825-464a-926a-28dfa4130448">
+      <sub><b> PIC4 : 상품 상세 보기의 리뷰 </sub></b>
+    </td>
+  </tr>
+</table>
+
+
+#### (3) 장바구니 페이지
+- 사용자가 장바구니에 담은 상품명, 상품 이미지, 상품 가격, 상품 개수, 상품 총 가격, 결제 금액, 구매하기 버튼을 출력하는 화면 구현
+- 상품의 가격과 상품의 개수로 상품별 총 금액을 계산하여 출력
+- 상품별 총 금액을 합하여 총 결제 금액 출력
+
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/8503af34-3b02-4ece-a9a6-9e3089a895ee">
+      <sub><b> PIC1 : 장바구니 페이지 </sub></b>
+    </td>
+  </tr>
+</table>
+
+
+#### (4) 결제 페이지
+- 주문자 정보와 배송지 정보를 출력하는 결제 화면 구현
+- 배송지 정보를 주문자 정보와 다르게 설정할 수 있도록 구현
+- 주문자 정보와 동일 버튼을 클릭하면 현재 로그인되어 있는 사용자의 정보가 배송지 정보에 자동으로 입력됨
+- 결제하기 버튼을 누르면 iamport의 kicc와 연동되어 결제창 출력됨
+- 결제 완료 후 구매하기 버튼을 눌러 결제 데이터, 배송 데이터, 출고 데이터를 데이터베이스에 입력하여 결제 처리
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/497f295c-7cb4-4575-8f34-820e2a27ea4a">
+      <sub><b> PIC1 : 결제 페이지(1) </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/eb7c7e68-3043-4d4e-846b-432849149168">
+      <sub><b> PIC2 : 결제 페이지(2) </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/332e331c-71f4-4adb-9a4e-2bba655cb977">
+      <sub><b> PIC3 : iamport 결제창 </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (5) 리뷰 작성 페이지
+- 마이페이지의 리뷰 관리 페이지에서 구매확정 버튼 클릭 시 접근 가능
+- 입력된 리뷰 글을 리뷰 테이블에 저장
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/0a818d45-1b0a-4fa3-97d0-3aebd6d9ac72">
+      <sub><b> PIC1 : 리뷰 작성 </sub></b>
+    </td>
+  </tr>
+</table>
