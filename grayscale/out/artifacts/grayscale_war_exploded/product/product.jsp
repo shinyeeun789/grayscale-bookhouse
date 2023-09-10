@@ -95,14 +95,6 @@
                     <div class="col-lg-8">
                         <div class="product__details__text">
                             <h4> ${product.pname} </h4>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div>
                             <h3> ${product.price}원 </h3>
                             <div class="product__details__cart__option">
                                 <form action="${path}/AddCartPro.do" method="post" onsubmit="return ${amount > 0}">

@@ -98,7 +98,7 @@ public interface DBConnect {
     final static String RETURN_PAYMENTS = "delete from payment where cnum=?";
     final static String RETURN_SERVE = "delete from serve where sno=?";
     final static String RETURN_SERVES = "delete from serve where sno in (select sno from payment where cnum=?)";
-    final static String RETURN_CART = "insert into cart values (default, ?, ?, ?)";
+    final static String RETURN_CART = "insert into cart values (?, ?, ?, ?)";
     final static String RETURN_DELIVERY = "delete from delivery where sno=?";
     final static String RETURN_DELIVERIES = "delete from delivery where sno in (select sno from payment where cnum=?)";
 

@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title> 개인정보 변경 </title>
+    <title> 배송정보 변경 </title>
     <c:set var="path" value="<%=request.getContextPath()%>"/>
     <c:set var="state_list" value="${fn:split('입고,상차,하차,배송 중,배송 도착',',')}"/>
     <%@ include file="../../common.jsp"%>

@@ -136,9 +136,10 @@ public class PaymentDAO {
 
             // 4. 반품 시 장바구니에 다시 담기
             pstmt = conn.prepareStatement(DBConnect.RETURN_CART);
-            pstmt.setString(1, cid);
-            pstmt.setInt(2, pno);
-            pstmt.setInt(3, amount);
+            pstmt.setString(1, cid.concat(Integer.toString(pno)));
+            pstmt.setString(2, cid);
+            pstmt.setInt(3, pno);
+            pstmt.setInt(4, amount);
             cnt = cnt + pstmt.executeUpdate();
 
             conn.commit();
@@ -204,9 +205,10 @@ public class PaymentDAO {
             // 4. 반품 시 장바구니에 다시 담기
             for(Payment pay:payList) {
                 pstmt = conn.prepareStatement(DBConnect.RETURN_CART);
-                pstmt.setString(1, cid);
-                pstmt.setInt(2, pay.getPno());
-                pstmt.setInt(3, pay.getAmount());
+                pstmt.setString(1, cid.concat(Integer.toString(pay.getPno())));
+                pstmt.setString(2, cid);
+                pstmt.setInt(3, pay.getPno());
+                pstmt.setInt(4, pay.getAmount());
                 cnt = cnt + pstmt.executeUpdate();
             }
             conn.commit();
