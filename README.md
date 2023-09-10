@@ -110,11 +110,120 @@
   </tr>
 </table>
 
-
-
 #### (2) 로그인
-- 아보카도의 기능을 사용하기 위해서는 로그인 필수
-- 비로그인 시 FAQ 리스트만 접근 가능
+- grayscale의 기능을 사용하기 위해서는 로그인 필수
+- 입력받은 아이디와 비밀번호를 데이터베이스의 데이터와 비교하여 값이 일치하면 성공, 일치하지 않으면 실패
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/e5883041-032f-46d0-b980-966e9adadb5f">
+      <sub><b> PIC1 : 로그인</sub></b>
+    </td>
+  </tr>
+</table>
+        
 #### (3) 마이페이지
 - 로그인한 사용자의 개인 정보 변경 가능
-- mariaDB에 저장되어 있는 암호화된 비밀번호를 복호화하여 input에 password type으로 출력
+- 주문/배송 목록 화면 구현
+- 취소/반품/교환 목록 화면 구현
+- 내가 작성한 리뷰 목록 기능 구현
+- 리뷰 작성 가능한 상품 목록 기능 구현
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/d8b87b8a-e8c8-4eee-9c29-e141de20c1d6">
+      <sub><b> PIC1 : 개인정보 확인 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/ea514197-7e43-41e7-91f1-2a4e64bf9733">
+      <sub><b> PIC2 : 개인정보 변경 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/6a2c6154-e138-4a0b-8984-59143d1d0cf9">
+      <sub><b> PIC3 : 주문/배송 조회 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/13b0d3fa-1099-40dd-aef7-e28fd13a9ee7">
+      <sub><b> PIC4 : 리뷰 관리 </sub></b>
+    </td>
+  </tr>
+</table>
+
+### 2. 관리자 기능
+#### (1) 관리자 페이지
+- chart.js를 활용하여 매출액 추이, 상품 판매 건수 출력
+- 상품 관리, 리뷰 관리 페이지로 이동 가능한 메뉴바 출력
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/ab48322e-190a-4ec2-87db-17c20512a46a">
+      <sub><b> PIC1 : Dashboard </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (2) 상품 관리
+- 상품 목록, 카테고리, 입고가, 재고, 현재 가격의 정보를 담고 있는 표를 출력하는 화면 구현
+- 상품 이미지, 상품명, 상품 설명, 상품 가격, 상품의 목차 데이터를 입력받아 상품을 추가하는 기능 구현
+- 상품 테이블에 존재하는 상품 목록 중 입고하고자 하는 상품의 입고 수량과 입고 가격을 입력한 후 입고 테이블에 저장
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/fc52fb42-d7fd-4d65-b6ed-466541927590">
+      <sub><b> PIC1 : 상품 목록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/bfb9cff1-3dd4-4c0e-b3c3-f9d49ba2920f">
+      <sub><b> PIC2 : 상품 등록 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/dc3d7118-44d7-4b6a-bb86-199909c7992a">
+      <sub><b> PIC3 : 상품 입고 </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (3) 배송 정보 관리
+- 결제완료 주문건과 배송상태 변경건의 상품명을 클릭할 경우, 송장번호와 배송 정보를 업데이트 할 수 있는 기능 구현
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/e74c284a-c78c-44b1-ba26-8ab0765b78fa">
+      <sub><b> PIC1 : 배송 정보 관리 </sub></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/06be8ff8-3ee1-4ecd-b101-94cfda219724">
+      <sub><b> PIC2 : 배송정보 변경 </sub></b>
+    </td>
+  </tr>
+</table>
+
+#### (4) 리뷰 관리
+- 상품에 대한 리뷰 목록을 출력하는 화면 구현
+- 관리자가 삭제하고자 하는 리뷰를 리뷰 테이블에서 삭제할 수 있는 기능 구현
+#### 📷 View
+<table>
+  <tr>
+    <td align="center">
+      <img width="1300" alt="image" src="https://github.com/shinyeeun789/grayscale_bookhouse/assets/70800414/4fe65499-9819-4964-a054-d40153dacc73">
+      <sub><b> PIC1 : 리뷰 관리 </sub></b>
+    </td>
+  </tr>
+</table>
