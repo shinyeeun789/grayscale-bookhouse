@@ -1,6 +1,5 @@
-select * from cart;
-
-drop table custom;
+CREATE DATABASE grayscale;
+USE grayscale;
 
 -- 회원 테이블 생성
 create table custom(
@@ -82,19 +81,6 @@ create table product(
 	imgsrc2 varchar(256) default 'noimg.jpg',
 	imgsrc3 varchar(256) default 'noimg.jpg',
 	resdate timestamp default current_timestamp);
-	
-select * from product where cate in (select cate from product where pno=1) order by random() limit 4;
-
-
-select * from product;
-select * from serve;
-
-select r.pno, r.amount-(case when s.amount is not null then s.amount else 0 end) as amount, rprice from receive r left outer join serve s on(r.pno=s.pno);
-
-select r.pno, sum(r.amount)-sum(s.amount) as amount, avg(rprice) from receive r left outer join serve s on (r.pno=s.pno) group by r.pno, s.pno;
-	
-select pname, cname, i.rprice, i.amount as amount, price 
-from product p left outer join receive r on(p.pno=r.pno) left outer join category c on(p.cate=c.cno) left outer join inventory i on(i.pno=p.pno);
 
 
 -- 입고 테이블 생성
@@ -105,13 +91,6 @@ create table receive(
 	rprice integer default 1000,
 	resdate timestamp default current_timestamp);
 
--- 입고 등록 쿼리문
-insert into receive(pno, amount, rprice)
-values (1, 10, 15000)
-on conflict(pno)
-do update
-set amount = (select amount from receive where pno=1)+10, rprice = ((select rprice from receive where pno=1) + 10000) / 2
-
 -- 출고 테이블 생성
 create table serve(
 	sno serial primary key,
@@ -120,8 +99,6 @@ create table serve(
 	sprice integer default 1000,
 	resdate timestamp default current_timestamp
 );
-
-insert into serve values(default, 1, 2, 15000, default);
 
 -- 카테고리 테이블 생성
 create table category(
@@ -136,7 +113,6 @@ insert into category values('C', '문제집');
 insert into category values('D', '기타');
 insert into category values('E', '해외서적');
 
-drop table cart;
 -- 카트 테이블 생성
 create table cart(
 	cartno varchar(30) primary key,
